@@ -1,0 +1,34 @@
+<ion-view view-title="叮咚门诊">
+
+        <ion-header-bar class="bar bar-calm" align-title="center">
+            <a href="#/navigation" class="button button-clear ion ion-chevron-left" >返回</a>
+            <h1 class="title">叮咚医邦</h1>
+        </ion-header-bar>
+        <ion-content overflow-scroll="false">
+
+            <div id="search-bar">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper" id="search-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="搜索医生" ng-model="vm.query" ng-change="vm.search()">
+                    </label>
+                </div>
+            </div>
+            <!--<ion-refresher pulling-text="下拉刷新..." on-refresh="vm.doRefresh()"></ion-refresher>-->
+            <div>
+                <ion-item ng-repeat="doctor in vm.doctors | filter:vm.query"
+                          class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap"  ng-click="getDoctor(doctor)">
+                    <img ng-src="{{doctor.headImgUrl}}"
+                         err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                    <h2>{{doctor.name}}</h2>
+
+                    <p>{{doctor.hospitalName}}</p>
+
+                    <p>{{doctor.level}}</p>
+
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-view>

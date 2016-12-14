@@ -1,0 +1,40 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/patientsAll" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> 我的粉丝</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" overflow-scroll="false">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="vm.doRefresh()"></ion-refresher>
+
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="http://www.yushansoft.com/dingdong/images/sys/funs.png">
+                <p>粉丝总数：{{vm.doctorFansNum}}&nbsp;&nbsp;&nbsp;人</p>
+            </div>
+
+        </div>
+
+        <ion-list>
+            <div ng-repeat="doctorFan in vm.doctorFans">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" href="#/tab/funInformation/{{doctorFan.userId}}">
+                    <img ng-src="{{doctorFan.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+                    <h2>{{doctorFan.fansName}}&nbsp;&nbsp;&nbsp;{{doctorFan.fansGender | gender}}</h2>
+                    <p>{{doctorFan.country}}-{{doctorFan.province}}-{{doctorFan.city}}</p>
+                    <p>关注时间：{{doctorFan.createTime| dateFormat1}}</p>
+
+                    <!--<p>地址：{{doctorFan.fansAddress}}</p>-->
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+            </div>
+        </ion-list>
+        <div  ng-show="showOrNot" class="center" >
+                还没有患者粉丝哦，继续加油吧!
+        </div>
+
+        <ion-infinite-scroll pulling-text="加载更多..." ng-if="vm.moredata" on-infinite="vm.loadMore()"
+                             distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

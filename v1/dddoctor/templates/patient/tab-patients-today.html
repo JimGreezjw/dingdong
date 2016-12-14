@@ -1,0 +1,40 @@
+<ion-view view-title="叮咚医邦">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <!--<a href="#/tab/patientsAll" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>
+        &nbsp;&nbsp; &nbsp;&nbsp;
+        <div class="button-bar">
+            <a ng-class="showPatient0" ng-click="showPatient('0')">今日患者</a>
+            <a ng-class="showPatient1" ng-click="showPatient('1')">已约患者 <span class="badge badge-balanced" ng-if="registerCount>0">{{registerCount}}</span></a>
+        </div>
+        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <!--<h1 class="title"> 今日患者</h1>-->
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新...."
+                       refreshing-text="正在刷新!"
+                       refreshing-icon="ion-loading-b">
+
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="patient in patients">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" 
+                      type="item-text-wrap" href="#/patients/{{patient.patientId}}/{{patient.id}}/patientsToday">
+	                <img ng-src="{{patient.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+	                 <h2>{{patient.patientName}}&nbsp;|&nbsp;{{patient.status | registerStatus}}</h2>
+                    <p>预约医院：{{patient.hospitalName}}</p>
+                    <p>预约时间：{{patient.scheduleDate}}&nbsp;&nbsp;{{patient.timeSlot | timeSlot}}</p>
+	                <i class="icon ion-chevron-right icon-accessory"></i>
+	            </ion-item>
+            </div>
+        </ion-list>
+
+        <div  ng-show="showOrNot" class="center" >
+            <div class="title">
+                您暂时没有患者，发布新日程，约起！
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

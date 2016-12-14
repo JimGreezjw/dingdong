@@ -1,0 +1,33 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">{{hospital.name}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="{{hospital.iconUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital_0.png">
+
+
+                <h2>
+                    {{hospital.name}}
+                </h2>
+
+                <span><i class="ion-iphone"></i>&nbsp;&nbsp;电话:&nbsp;&nbsp;{{hospital.tele}}</span>
+
+                <p>{{hospital.province}}{{hospital.city}}{{hospital.street}}</p>
+
+            </div>
+            <div class="item item-body">
+                <img class="full-image" src="{{hospital.iconUrl}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hosipitalintro_0.png">
+                <p>
+                  {{hospital.introduction}}
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

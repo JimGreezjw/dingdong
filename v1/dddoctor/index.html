@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script language="javaScript">
+        var ddybUserId = getQueryString("userId");
+        var ddyzUserId = getQueryString("userId");
+        var ddRole = getQueryString("role");  //$location.search().ddRole;
+//        ddRole = 4;
+        if(ddRole=="4"){
+//            setCookie("ddyzUserId", "12", d, "/", null);
+            delCookie('ddybUserId');
+            delCookie('doctorId');
+//        delCookie('ddyzUserId');
+            if (ddyzUserId) {
+                var d = new Date();
+                var exdays = 30;
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                setCookie("ddyzUserId", ddyzUserId, d, "/", null);
+            } else {
+                ddyzUserId = getCookie('ddyzUserId');
+            }
+
+            if (!ddyzUserId) {
+                var appId = getQueryString("appId");
+                if (appId && appId != "") {
+                    window.localStorage["terminalType"] = "wx";
+                    var destUrl = encodeURIComponent(window.location);
+                    //获取openId
+                    var hostInfo = "http://" + window.location.host;
+                    var redirectUrl = hostInfo + "/dingdong/ddyb/loginCallback?destUrl=" + destUrl ;
+                    var wxUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId
+                            + "&redirect_uri=" + encodeURIComponent(redirectUrl)
+                            + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+                    //alert(wxUrl);
+                    location.href = wxUrl;
+                }
+            }
+
+        }else{
+//            setCookie("ddybUserId", "12", d, "/", null);
+//            setCookie("doctorId", "4", d, "/", null);
+            delCookie('ddyzUserId');
+//        delCookie('ddybUserId');
+//        delCookie('doctorId');
+            if (ddybUserId) {
+                var d = new Date();
+                var exdays = 30;
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                setCookie("ddybUserId", ddybUserId, d, "/", null);
+            } else {
+                ddybUserId = getCookie('ddybUserId');
+            }
+
+            var doctorId = getQueryString("doctorId");
+            if (doctorId) {
+                var d = new Date();
+                var exdays = 30;
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                setCookie("doctorId", doctorId, d, "/", null);
+            } else {
+                doctorId = getCookie('doctorId');
+            }
+
+            if (!ddybUserId) {
+                var appId = getQueryString("appId");
+                if (appId && appId != "") {
+                    window.localStorage["terminalType"] = "wx";
+                    var destUrl = encodeURIComponent(window.location);
+                    //获取openId
+                    var hostInfo = "http://" + window.location.host;
+                    var redirectUrl = hostInfo + "/dingdong/ddyb/loginCallback?destUrl=" + destUrl ;
+                    var wxUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId
+                            + "&redirect_uri=" + encodeURIComponent(redirectUrl)
+                            + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+                    //alert(wxUrl);
+                    location.href = wxUrl;
+                }
+            }
+
+        }
+
+
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null)return unescape(r[2]);
+            return null;
+        }
+
+        //获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        function setCookie(name, value, expires, path, domain, secure) {
+            document.cookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+        }
+        function delCookie(name) {
+            if (getCookie(name) != null) {
+                setCookie(name, "", null, "/", null);
+            }
+        }
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>叮咚医邦</title>
+
+    <link href="//cdn.bootcss.com/ionic/1.2.3/css/ionic.min.css" rel="stylesheet">
+    <link href="http://www.yushansoft.com/dingdong/common/lib/ionic/css/calendar.min.css" rel="stylesheet">
+    <link href="css/dddoctor.min.css" rel="stylesheet">
+
+</head>
+<body ng-app="dddoctorApp">
+
+<ion-nav-view></ion-nav-view>
+
+</body>
+<script src="//cdn.bootcss.com/ionic/1.2.1/js/ionic.bundle.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.3/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.3/angular-resource.min.js"></script>
+<script src="http://www.yushansoft.com/dingdong/common/lib/ionic/js/ionic-datepicker.bundle.min.js"></script>
+<script src="http://www.yushansoft.com/dingdong/common/lib/ionic/js/calendar-tpls.min.js"></script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script src="js/dddoctor.min.js"></script>
+</html>

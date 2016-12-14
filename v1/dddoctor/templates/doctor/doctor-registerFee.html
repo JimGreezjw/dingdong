@@ -1,0 +1,28 @@
+<ion-view view-title="我的羽毛" >
+    <ion-nav-bar class="bar-calm" align-title="center">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="padding">
+
+     <div class="list card">
+
+          <div class="item item-avatar">
+                <img ng-src="{{doctor.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/ddmzQr.png">
+                <h2>{{doctor.name}}</h2>
+                <p>性别：{{doctor.gender| gender}}</p>
+                <p>职称：{{doctor.level}}</p>
+          </div>
+     </div>
+     <div class="list">
+        <label class="item item-input">
+            <span class="input-label">羽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毛：</span>
+            <input type="text" ng-model="ctrlScope.registerFee"  required readonly>
+        </label>
+    </div>
+</ion-content>
+
+<div class="bar bar-subfooter bar-balanced">
+    <h2 class="title" ng-click="showConfirmeSave('提取收益')" >提取收益</h2>
+</div>
+</ion-view>

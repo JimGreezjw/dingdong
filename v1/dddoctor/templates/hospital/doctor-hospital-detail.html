@@ -1,0 +1,57 @@
+<ion-view view-title="叮咚医邦">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/scheduleHospitals" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> 医院信息</h1>
+        <h2 class="button button-clear ion ion-checkmark-round" ng-click="showConfirmSave('保存')" >保存</h2>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="{{hospital.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+
+                <h2>{{hospital.hospitalName}}</h2>
+
+            </div>
+        </div>
+        <div class="list">
+
+            <label class="item item-input">
+                <button ng-model="ctrlScope.getHospital" ng-click="getDept(ctrlScope.hospitalId)"  class="button button-clear ion ion-android-add" >&nbsp;&nbsp;科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;室：</button>
+                <input style=" text-align:right" type="text" name="name" ng-model="ctrlScope.deptName" placeholder="请选择科室" required readonly>
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">放号数（个）：</span>
+                <input style=" text-align:right"  type="tel" ng-model="ctrlScope.minQueue"  placeholder="请输入放号数"  ng-change="change()" required>
+            </label>
+            <label class="item item-input" align="right">
+                <span class="input-label">挂号费（元）：</span>
+                <input style=" text-align:right" type="tel" ng-model="ctrlScope.registerFee" placeholder="请输入挂号费" required>
+            </label>
+            <ion-toggle ng-model="ctrlScope.registerStatus" toggle-class="toggle-assertive">开放排队</ion-toggle>
+
+
+        </div>
+        <br/>
+    </ion-content>
+    <!--    <div class="bar bar-subfooter">
+            <table width="100%">
+                <tr>
+                    <td width="33%" align="center">
+                        <button ng-click="showConfirmOpen('开放排队')" class="button button-positive" ng-disabled="oderSet">
+                            开放排队
+                        </button>
+                    </td>
+
+                    <td width="33%" align="center">
+                        <button ng-click="showConfirmCancel('取消排队')" class="button button-positive" ng-disabled="oderSet">
+                            取消排队
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>-->
+</ion-view>

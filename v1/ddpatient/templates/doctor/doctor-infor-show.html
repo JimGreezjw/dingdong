@@ -1,0 +1,90 @@
+﻿﻿
+<ion-view>
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack()" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">叮咚门诊</h1>
+        <a ng-click="shareFriends()" class="button button-large button-clear ion ion-android-share">分享</a>
+    </ion-header-bar>
+
+
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item item-thumbnail-left ">
+                <img ng-src="{{doctor.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+                <a class="fontNum1">{{doctor.name}} </a>
+                <p>{{doctor.level}}&nbsp;&nbsp;{{doctor.deptName}}</p>
+                <a class="tab-item" ng-switch="custom">
+                    <span ng-if="!custom" class="badge badge-dark" ng-click="doctorFan()">关注 </span>
+                    <span ng-if="custom" class="badge badge-balanced" ng-click="delFan()">取消关注</span>
+                </a>
+                <p>{{doctor.hospitalName}}</p>
+            </div>
+            <div ng-repeat="doctor in doctors" class="row" style="padding: 0px">
+                <div class="col col-50" style="padding: 0px">
+                    <div star rating-value="doctor.treatmentEffect/100  | number:0" readonly="true"
+                         starstyle="ratingsmall"></div>
+                    <p style="text-align: center;font-size: 1.2em;">疗效</p>
+                </div>
+
+                <div class="col col-50" style="padding: 0px">
+                    <div star rating-value="doctor.serviceAttitude/100  | number:0" readonly="true"
+                         starstyle="ratingsmall"></div>
+                    <p style="text-align: center;font-size: 1.2em;">态度</p>
+                </div>
+
+            </div>
+            <div class="item item-divider">&nbsp;<i class="ion-location"></i>&nbsp;执业地点：</div>
+            <a ng-repeat="hospital in doctor.hospitals" class="item"
+               href="#/hospitals/{{hospital.hospitalId}}/hospitalIntro">
+                {{hospital.hospitalName}}<span class="item-note"> {{hospital.deptName}}</span>
+            </a>
+        </div>
+
+        <div class="item item-body">
+            <i class="ion-bookmark"></i>&nbsp;医生简介:
+            <p>
+                <article class="ddarticle"> {{doctor.introduction}}</article>
+            </p>
+            <i class="ion-wand"></i>&nbsp;擅长：
+            <p>
+                <article class="ddarticle"> {{doctor.specialty}}</article>
+            </p>
+        </div>
+
+        <div class="item item-divider">&nbsp;<i class="ion-edit"></i>&nbsp;评论：</div>
+        <a ng-repeat="doctorEval in doctorEvals" class="item">
+            <i class="ion-ios-person"></i>
+            <span class="item-note">{{doctorEval.createTime | date:'yyyy-MM-dd'}}</span>
+            <p>{{doctorEval.evalDesc}}</p>
+            <div class="row" style="padding: 0px;font-size: 10px">
+                <div class="col col-50" style="padding: 0px">
+                    <div star startext="疗效:" rating-value="doctorEval.treatmentEffect" readonly="true"
+                         starstyle="ratingsmall"></div>
+                </div>
+                <div class="col col-50" style="padding: 0px">
+                    <div star startext="态度:" rating-value="doctorEval.serviceAttitude" readonly="true"
+                         starstyle="ratingsmall"></div>
+                </div>
+            </div>
+        </a>
+        <div class="item" style="text-align: center;" ng-if="doctorEvals.length>0"><a href="#/user/doctorEvaluationList/{{doctor.id}}">查看全部评论</a>
+        </div>
+        <div class="item" style="text-align: center;" ng-if="!(doctorEvals.length>0)">暂无评论
+        </div>
+        <div class="item item-body">
+            <img data-tap-disabled="true" class="full-image" src="{{doctor.qrImgUrl}}">
+        </div>
+
+    </ion-content>
+    <div class="bar bar-footer bar-balanced">
+        <div class="title">
+            <a ng-click="registerDoc()"
+               class="button button-clear button-icon icon ion-ios7-videocam-outline"
+            >预约挂号
+            </a>
+        </div>
+    </div>
+
+</ion-view>

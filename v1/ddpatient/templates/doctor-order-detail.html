@@ -1,0 +1,50 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/doctors/{{doctor.id}}" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">{{selectedDate}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="{{doctor.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                <h2>{{doctor.name}}</h2>
+
+                <p>{{doctor.hospitalName}}</p>
+
+                <p>{{doctor.level}}</p>
+
+            </div>
+        </div>
+
+        <br/>
+
+        <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calen.mr.eventSource"
+                  range-changed="reloadSource(startTime, endTime)"
+                  event-selected="onEventSelected(event)"
+                  time-selected="onTimeSelected(selectedTime)"></calendar>
+
+        <br/>
+        <div class="list">
+
+            <div ng-repeat="schedule in scheduleList" class="item item-button-right">
+                <p>{{schedule.timeSlotDesc}}门诊</p>
+                <p>{{schedule.hospitalName}} </p>
+
+                <span class="badge badge-balanced" style="right:100px">已挂{{schedule.registeredNum}}/放号{{schedule.issueNum}}</span>
+                <button ng-if="(schedule.issueNum-schedule.registeredNum >0)&&(schedule.status==1)"
+                        class="button button-positive"
+                        ng-click="showConfirm(schedule.timeSlotDesc+'门诊',schedule.id,schedule.scheduleDate,schedule.doctorId)">
+                    预约
+                </button>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

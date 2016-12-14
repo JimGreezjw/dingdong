@@ -1,0 +1,59 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <h1 class="title">欢迎入驻—叮咚医邦</h1>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div width="100%"    border="0" style="margin:1% 0 0 0" >
+        <img  style="max-height:140px;width:100%" src="http://www.yushansoft.com/dingdong/images/guanggao/ddyb.jpg"/>
+        </div>
+        <div ng-hide="showsHide">
+        <div class="list">
+            <label class="item item-input">
+                <button ng-model="ctrlScope.getDoctor" ng-click="getDoctor()"
+                        class="button button-clear ion ion-person-add">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <input type="text" name="name" ng-model="ctrlScope.name" placeholder="请选择入驻人" required readonly>
+            </label>
+            <!--<label class="item item-input">-->
+                <!--<span class="input-label">&nbsp;&nbsp;医&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院</span>-->
+                <!--<input type="text" ng-model="ctrlScope.hospitalName"  placeholder="请输入医院" required >-->
+            <!--</label>-->
+            <!--<label class="item item-input">-->
+                <!--<span class="input-label">&nbsp;&nbsp;科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;室</span>-->
+                <!--<input type="text" ng-model="ctrlScope.deptName"  placeholder="请输入科室" required >-->
+            <!--</label>-->
+            <label class="item item-input">
+                <span class="input-label">&nbsp;&nbsp;科室固话</span>
+                <input type="text" ng-model="ctrlScope.officeTele"   placeholder="例：010-12345678-分机号" required >
+            </label>
+        </div>
+        <div>
+            <h2 id='navigation' class="button button-positive" ng-click="showConfirmeSave('保存更改')" >提交申请</h2>
+        </div>
+
+        <br/><br/><br/>
+            <p class="ex1">
+                &nbsp;&nbsp;&nbsp;&nbsp;“叮咚医邦”唯医生使用，点击“提交申请”按钮，即表示同意
+                <a href="#/navigationTerms"> 《叮咚门诊预约挂号服务协议》</a>
+            </p>
+        </div>
+
+        <div ng-hide="!showsHide" >
+            <label class="item item-text-wrap">
+                <p class="ex2">&nbsp;&nbsp;&nbsp;&nbsp; 您已经申请过入驻“叮咚医邦”！请精心等待帮邦员与您联系！<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;如有疑问，请联系：<br/>
+                    <p class=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服电话：400-400-400</p>
+                    <p class=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服微信：dingdongyiliao</p>
+                    <p class=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服&nbsp;&nbsp;QQ：666666</p>
+                </p>
+            </label>
+            <label class="item item-text-wrap">
+                <p class="">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;叮咚一声，帮您敲响名医之门！叮咚医邦-名医“第二门诊”，是国内首家专业的“互联网+门诊”服务平台，旨在引导名医多点执业并
+                为病患提供专业、优质、个性化的门诊医疗服务，实现“好看病，看好病”的目标。
+                </p>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

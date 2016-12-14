@@ -1,0 +1,38 @@
+<div class="weekview">
+    <ion-slide-box class="weekview-slide" on-slide-changed="slideChanged($index)" does-continue="true"
+                   show-pager="false">
+        <ion-slide ng-repeat="view in views track by $index">
+            <table class="table table-bordered table-fixed weekview-header">
+                <thead>
+                <tr class=\"text-center\">
+                    <th>
+                        <small>日</small>
+                    </th>
+                    <th>
+                        <small>一</small>
+                    </th>
+                    <th>
+                        <small>二</small>
+                    </th>
+                    <th>
+                        <small>三</small>
+                    </th>
+                    <th>
+                        <small>四</small>
+                    </th>
+                    <th>
+                        <small>五</small>
+                    </th>
+                    <th>
+                        <small>六</small>
+                    </th>
+                </tr>
+                </thead>
+                <tr>
+                    <td  ng-repeat="dt in view.dates" ng-click="select(dt.date)" ng-class="getHighlightClass(dt.date)">{{::dt.date| date:
+                        'd'}}</td>
+                </tr>
+            </table>
+        </ion-slide>
+    </ion-slide-box>
+</div>

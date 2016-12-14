@@ -1,0 +1,47 @@
+<ion-view view-title="{{hospital.hospitalName}}" >
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <!--<a href="#/tab/scheduleDoctorHospitals" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">{{hospital.hospitalName}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+    <div class="list">
+        <label class="item item-input">
+            <span class="input-label">医&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院：</span>
+            <input type="text" ng-model="ctrlScope.hospitalName"  placeholder="请输入医院" required readonly>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;室：</span>
+            <input type="text" ng-model="ctrlScope.deptName"  placeholder="请输入科室" required readonly>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">开&nbsp;放&nbsp;日&nbsp;期：</span>
+            <ionic-datepicker input-obj="datepickerObject">
+                <button class="button button-clear"> {{datepickerObject.inputDate | date:'yyyy - MM -dd '}}</button>
+            </ionic-datepicker>
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label">
+              开放时间段：
+            </span>
+            <select class="item-input-inset" ng-model="ctrlScope.timeSlot" ng-options="timeSlot.value as timeSlot.name for timeSlot in timeSlotList">
+            </select>
+        </label>
+
+        <label class="item item-input">
+            <span class="input-label">放&nbsp;号&nbsp;数&nbsp;量：</span>
+            <input type="number" ng-model="ctrlScope.minQueue"  ng-maxlength='12' placeholder="请输入放号数量" required >
+        </label>
+        <label class="item item-input">
+            <span class="input-label">挂&nbsp;&nbsp;&nbsp;号&nbsp;&nbsp;&nbsp;&nbsp;费：</span>
+            <input type="number" ng-model="ctrlScope.registerFee"  ng-maxlength='12' placeholder="请输入挂号费" required readonly>
+        </label>
+    </div>
+
+</ion-content>
+
+<div class="bar bar-footer bar-balanced">
+    <h2 class="title" ng-click="showConfirmeAdd('添加预约')" >添加</h2>
+</div>
+</ion-view>

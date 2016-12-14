@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--微信jssdk -->
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>')
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+	<script src="common.js"></script> 
+	<script >
+function onBridgeReady(){
+				//获得配置
+				var userId = localStorage["ddUserId"];
+				$.ajax({
+					type: "GET",
+					url: "http://www.yushansoft.com/dingdong/wechat/payToken",
+					cache: false,
+					data:{
+						userId:userId,
+						totalFee:0.01
+					},
+					success: function(ret){
+							alert("the config is "+JSON.stringify(ret));
+							if(ret.responseDesc=="OK")
+							{
+								WeixinJSBridge.invoke(
+								   'getBrandWCPayRequest', ret.tokenConfig,
+								   function(res){     
+									   if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+											alert(JSON.stringify(res));
+									   
+									   }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+								   }
+							   ); 
+							}
+							else
+							{
+								alert(ret.responseDesc);
+							}
+
+						
+					}
+					
+				}); 
+
+
+
+}
+/*
+if (typeof WeixinJSBridge == "undefined"){
+   if( document.addEventListener ){
+       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+   }else if (document.attachEvent){
+       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+   }
+}else{
+   onBridgeReady();
+}*/
+	</script> 
+</head>
+
+<body>
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+  <input type='button' id='pay' value='发起支付' onclick="onBridgeReady()">
+  
+</body>
+
+</html>

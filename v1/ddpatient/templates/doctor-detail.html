@@ -1,0 +1,58 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="button-bar">
+            <button class="{{viewStatus==1 ?'button button-positive ':'button'}}" ng-click="showSchedule('1')">列表模式
+            </button>
+            <button class="{{viewStatus==2 ?'button button-positive ':'button'}}" ng-click="showSchedule('2')">日历模式
+            </button>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding" ng-switch="viewStatus" overflow-scroll="false">
+
+        <ion-list ng-switch-when="1">
+            <ion-item ng-repeat="schedule in schduleDateList" class="item item-button-right">
+                <p style="font-size: 1.1em">{{schedule.hospitalName}}</p>
+                <p style="font-size: 1.0em">{{schedule.scheduleDate}}</p>
+                <p>{{schedule.timeSlotDesc}}门诊&nbsp;&nbsp;{{schedule.startTime}}<span class="badge bar-calm"
+                                                                                      style="position: absolute;top:2.2em;right: 6.5em">余号：{{schedule.issueNum-schedule.registeredNum}}</span>
+                </p>
+                <button ng-if="(schedule.issueNum-schedule.registeredNum >0)&&(schedule.status==1)"
+                        class="button button-calm" style="position: absolute;top:1.5em;"
+                        ng-click="showConfirm(schedule.timeSlotDesc+'门诊',schedule.id,schedule.scheduleDate,schedule.doctorId)">
+                    预约
+                </button>
+            </ion-item>
+        </ion-list>
+        <div ng-switch-when="2">
+            <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+                      range-changed="reloadSource(startTime, endTime)"
+                      event-selected="onEventSelected(event)" title-changed="onTimeTitleChanged(title)"
+                      time-selected="onTimeSelected(selectedTime)">
+            </calendar>
+
+            <div class="list" ng-show="scheduleShow">
+
+                <div ng-repeat="schedule in schduleList" class="item item-button-right">
+                    <p style="font-size: 1.1em">{{schedule.hospitalName}}</p>
+                    <p style="font-size: 1.0em">{{schedule.scheduleDate}} </p>
+                    <p>{{schedule.timeSlotDesc}}门诊&nbsp;&nbsp;{{schedule.startTime}}<span
+                            class="badge badge bar-calm"
+                            style="position: absolute;top:2.2em;right: 6.5em">余号：{{schedule.issueNum-schedule.registeredNum}}</span>
+                    </p>
+                    <button ng-if="(schedule.issueNum-schedule.registeredNum >0)&&(schedule.status==1)"
+                            class="button button-calm" style="position: absolute;top:1.5em;"
+                            ng-click="showConfirm(schedule.timeSlotDesc+'门诊',schedule.id,schedule.scheduleDate,schedule.doctorId)">
+                        预约
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

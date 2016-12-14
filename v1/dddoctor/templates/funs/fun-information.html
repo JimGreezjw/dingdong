@@ -1,0 +1,46 @@
+<ion-view>
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">{{user.name}}</h1>
+    </ion-header-bar>
+
+
+    <ion-content class="row-no-padding">
+
+        <div class="">
+
+            <div class="item item-avatar">
+                <img ng-src="{{user.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+                <h2>{{user.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{user.phone}}</h2>
+                <p>{{user.gender | gender}}</p>
+            </div>
+        </div>
+        <div class="item item-divider" align="center">
+            就诊记录
+        </div>
+
+        <ion-list>
+            <div ng-repeat="register in registersHistorys">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" href="#/tab/doctors/{{register.doctorId}}">
+                    <img ng-src="http://www.yushansoft.com/dingdong/images/sys/register_0.png">
+
+                    <p> 医生：{{register.doctorName}}</p>
+                    <p> 医院：{{register.hospitalName}}</p>
+                    <p> 就诊时间：{{register.scheduleDate | dateFormat1}}&nbsp;{{register.timeSlot | timeSlot}}</p>
+                    <p> 病况：{{register.phenomenon}}</p>
+                </ion-item>
+            </div>
+        </ion-list>
+
+
+        <div  ng-show="showOrNot" class="center" >
+            <div class="title">
+                没有就诊记录！
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

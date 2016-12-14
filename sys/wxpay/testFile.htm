@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--微信jssdk -->
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>')
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+	<script src="common.js"></script> 
+	<script >
+$(function(){
+
+		ys.wechat.wxConfig();
+		wx.ready(function(){
+			// 提交
+			$("#uploadFile").click(function(event){
+				wx.chooseImage({
+					success: function(res){
+						alert(JSON.stringify(res));
+						var localId=res.localIds[0];
+						var img1=$("#img1");
+						img1.attr("src",localId);
+						img1.show();
+						wx.uploadImage({
+		        		    localId: localId, // 需要上传的图片的本地ID，由chooseImage接口获得
+		        		    isShowProgressTips: 1, // 默认为1，显示进度提示
+		        		    success: function (res) {
+		        		        var serverId = res.serverId; // 返回图片的服务器端ID
+		        		        alert("the wx serverId is "+serverId);
+		        		        $.ajax({
+        							url : "/dingdong/yusFiles",
+        							type : "POST",
+        							cache : "false",
+        							data : {
+        								userId :localStorage["ddUserId"],
+        								wxServerId : serverId
+        							},
+        							success : function(result) {
+        								if (1 == result.responseStatus) {
+        									fileId = result.yusFiles[0].id;
+        									alert("应写入数据库attatchRef 的文件ID "+fileId);
+											//ys.showMsg("图片上传成功！")
+        								}
+        								else
+        								{
+        									alert(result.responseDesc);
+        								}
+        							}
+        						});
+							}
+						})
+
+					}
+				})
+				});
+	    });
+	});
+	
+	
+	
+	
+	</script> 
+</head>
+
+<body>
+ <input type='button' id='uploadFile' value='上传文件'>
+
+   <img id=img1 src="" style="width:200px;height:200px">
+   <img id=img2 src="" style="width:200px;height:200px">
+   <img id=img3 src="" style="width:200px;height:200px">
+</body>
+
+</html>

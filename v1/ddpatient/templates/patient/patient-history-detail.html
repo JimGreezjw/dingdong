@@ -1,0 +1,54 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title"> {{patient.name}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="{{patient.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+
+                <h2>{{patient.name}}</h2>
+                <p>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：{{patient.phone}}</p>
+            </div>
+        </div>
+
+        <div class="item item-divider">
+            病情简介
+        </div>
+        <div class="item item-text-wrap">
+            {{register.phenomenon}}
+            <br>
+            <div class="row">
+                <div class="col col-25" ng-repeat="yusFile in yusFiles">
+                    <img class="full-image" ng-src="{{yusFile}}">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item item-divider" align="left">
+            患者评价
+        </div>
+        <div class="item item-body" ng-repeat="doctorEval in doctorEvals">
+            <p>
+                {{doctorEval.evalDesc}}</p>
+            <p ng-show="doctorEval.tagsDesc!=null&&doctorEval.tagsDesc!=''" >{{doctorEval.tagsDesc}}</p>
+            <div class="row" style="padding: 0px">
+                <div class="col col-50" style="padding: 0px">
+                    <div star startext="疗效:" rating-value="doctorEval.treatmentEffect" readonly="true"
+                         starstyle="ratingsmall"></div>
+                </div>
+                <div class="col col-50" style="padding: 0px">
+                    <div star startext="态度:" rating-value="doctorEval.serviceAttitude" readonly="true"
+                         starstyle="ratingsmall"></div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

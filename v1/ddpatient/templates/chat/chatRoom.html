@@ -1,0 +1,76 @@
+<ion-nav-view name="tab-doctorsFan">
+    <ion-view view-title="叮咚门诊">
+
+        <ion-header-bar class="bar bar-calm" align-title="center">
+            <a ng-click="goBack()" class="button button-clear ion ion-chevron-left">返回</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="button-bar">
+                <button class="{{viewStatus==1 ?'button button-positive':'button'}}" ng-click="showSchedule('1')">消息列表
+                </button>
+                <button class="{{viewStatus!=1 ?'button button-positive':'button'}}" ng-click="showSchedule('2')">医生列表
+                </button>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </ion-header-bar>
+        <ion-content overflow-scroll="false" ng-switch="viewStatus">
+
+            <div id="search-bar">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper" id="search-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="搜索医生、问诊记录" ng-model="vm.query">
+                    </label>
+                </div>
+            </div>
+            <div ng-switch-when="1">
+
+                <ion-refresher pulling-text="下拉刷新..." on-refresh="vmMsg.doRefresh()"></ion-refresher>
+                <div>
+                    <ion-item ng-repeat="msg in vmMsg.msgs | filter:vm.query"
+                              class="item-remove-animate item-avatar item-icon-right"
+                              type="item-text-wrap" ng-click="chatIn(msg)">
+
+
+                        <img ng-src="{{msg.fromUserHeadImgUrl}}"
+                             err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                        <p>
+                        <h2>{{msg.fromUserName}}</h2><span
+                            class="item-note">{{msg.createTime | date:'yyyy-MM-dd'}}</span></p>
+
+                        <p>{{msg.content}} </p>
+
+                        <ion-option-button class="button-assertive" ng-click="remove(doctor)">
+                            Delete
+                        </ion-option-button>
+
+                    </ion-item>
+                </div>
+                <ion-infinite-scroll pulling-text="加载更多..." ng-if="vmMsg.moredata" immediate-check="false" on-infinite="vmMsg.loadMore()"
+                                     distance="1%"></ion-infinite-scroll>
+            </div>
+            <div ng-switch-when="2">
+                <ion-refresher pulling-text="下拉刷新..." on-refresh="vmDoctor.doRefresh()"></ion-refresher>
+                <div>
+                    <ion-item ng-repeat="doctor in vmDoctor.doctors | filter:vm.query"
+                              class="item-remove-animate item-avatar item-icon-right"
+                              type="item-text-wrap" ng-click="chatIn_Doctor(doctor)">
+                        <img ng-src="{{doctor.headImgUrl}}"
+                             err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                        <h2>{{doctor.name}}</h2>
+
+                        <p>{{doctor.hospitalName}}</p>
+
+                        <p>{{doctor.level}}</p>
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+
+                    </ion-item>
+                </div>
+                <ion-infinite-scroll pulling-text="加载更多..." ng-if="vmDoctor.moredata" immediate-check="false" on-infinite="vmDoctor.loadMore()"
+                                     distance="1%"></ion-infinite-scroll>
+            </div>
+        </ion-content>
+    </ion-view>
+</ion-nav-view>

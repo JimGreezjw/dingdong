@@ -1,0 +1,32 @@
+<ion-view view-title="叮咚医邦">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <h1 class="title">{{evaluation.patientName}}</h1>
+    </ion-nav-bar>
+    <ion-content class="padding">
+
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="{{evaluation.headImgUrl}}">
+				 
+				 <h2>{{evaluation.patientName}}&nbsp;|&nbsp;{{evaluation.gender}}</h2>
+
+                <p>预约时间:{{evaluation.appointmentTime}}&nbsp;&nbsp;&nbsp;{{evaluation.timeSlot}}</p>
+				<p>症&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状：{{evaluation.condDesc}}</p>
+				<p>评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分:{{evaluation.evaluationScore}}</p>
+            </div>
+        </div>
+ 		<ddexpander class='expander' expander-title='expanderTitle'>
+            {{evaluation.evaluationDesc}}
+        </ddexpander>
+        <br/>
+
+
+    </ion-content>
+	<div class="bar bar-subfooter bar-balanced">
+          <h2 class="title" ng-click="showPopup()" >重新评价</h2>
+    </div>
+</ion-view>

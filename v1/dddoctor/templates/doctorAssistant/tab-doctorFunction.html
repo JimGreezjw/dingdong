@@ -1,0 +1,35 @@
+<ion-view view-title="叮咚医邦" >
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/assistantDoctors" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">叮咚医助</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" >
+
+        <div >
+            <ion-item class="item-remove-animate item-avatar item-icon-right"
+                      type="item-text-wrap" >
+                <img ng-src="{{doctor.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+                <p style="padding-bottom: 0.2em"><a class="fontNum1"> {{doctor.name}}&nbsp;</a><a
+                        class="fontNum2">{{doctor.level}},{{doctor.teacherLevel}}</a></p>
+                <p>{{doctor.hospitalName}}</p>
+                <p >{{doctor.deptName}}</p>
+            </ion-item>
+
+
+        </div>
+        <div class="div">
+                <div class="div_left" onclick="window.location.href= '#/patientsToday';return false">  <a href="#/patientsToday" > <img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/patientsToday.png"/></a><br><p class="ex1">预约患者 </p>
+                    <div class=" divFloatMain"> <span class="badge badge-balanced" ng-if="registerCount>0">{{registerCount}}</span></div>
+                </div>
+                <div class="div_left" onclick="window.location.href= '#/schedules';return false">  <a href="#/schedules" > <img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/calendar.png"/></a><br><p class="ex1">医生行程 </p>
+
+                </div>
+                <div class="div_left" onclick="window.location.href= '#/scheduleHospitals';return false">  <a href="#/scheduleHospitals" > <img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/hospital.png"/></a><br><p class="ex1">执业医院 </p>
+
+                </div>
+                <div class="clear"></div><!-- html注释：清除float产生浮动 -->
+       </div>
+
+   </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-header-bar class="bar bar-calm">
+        <a href="#/tab/schedules" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">{{schedules[0].scheduleDate}}</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新...."
+                       refreshing-text="正在刷新!"
+                       refreshing-icon="ion-loading-b">
+
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="schedule in schedules">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" 
+                      type="item-text-wrap"  >
+ 				    <img ng-src="{{schedule.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+
+                    <h2>{{schedule.hospitalName}}</h2>
+                    <p>时间段：{{schedule.timeSlot | timeSlot}}</p>
+					 <p>放&nbsp;&nbsp;号：{{schedule.issueNum}}个&nbsp;|&nbsp;已预约：{{schedule.registeredNum}}个</p>
+                 </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+    <div class="bar bar-subfooter bar-balanced">
+        <h2 class="title" ng-click="showConfirmeRgister('开放预约')" >添加行程</h2>
+    </div>
+</ion-view>

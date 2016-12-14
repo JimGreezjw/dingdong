@@ -1,0 +1,118 @@
+<html>
+<head> <meta charset="UTF-8"> 
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>叮咚门诊</title>
+<style>
+img{
+		width:45%;
+	  	text-align: center;
+	    margin-top: 10%;
+}
+p{
+
+	font-weight: bold;
+  	font-size: 48px;
+	  
+}
+
+</style>
+
+</head>
+<body ng-app="ddmzApp" ng-controller="ddmzCtrl">
+<div style ="width:100%; top:0; position:absolute; height:40%;text-align: center; " >
+<img src="http://www.yushansoft.com/dingdong/images/patient2.jpg" ng-click="openPatient();" ></img>
+
+<p ng-click="openPatient();">我要寻医 >>></p>
+
+</div>
+<div style ="width:100%; top:50%; position:absolute; height:40%;text-align: center;" >
+    <img src="http://www.yushansoft.com/dingdong/images/doctor2.jpg" ng-click="openDoctor();"/>
+
+<p ng-click="openDoctor();"> 我是医生 >>></p>
+</div>
+
+</body>
+<!--  <script src="http://www.yushansoft.com/dingdong/common/lib/ionic/js/angular/angular.min.js"></script>-->
+
+<script src="//cdn.bootcss.com/ionic/1.2.1/js/ionic.bundle.min.js"></script>
+
+<script src="http://www.yushansoft.com/dingdong/common/lib/ionic/js/angular/angular-resource.js"></script>
+
+
+<script>
+var app = angular.module('ddmzApp', []);
+app.controller('ddmzCtrl', function($scope, $http) {
+
+        var ddUserId = getQueryString("userId");  //$location.search().patientId;
+		 //localStorage.removeItem("ddUserId");
+        if (ddUserId)
+            localStorage["ddUserId"] = ddUserId;
+        else
+            ddUserId = localStorage["ddUserId"];
+            
+        //alert("there userId is "+ddUserId);
+
+        if (!ddUserId) {
+            var appId = getQueryString("appId");
+            if (appId && appId != "") {
+                window.localStorage["terminalType"] = "wx";
+                var destUrl = encodeURIComponent(window.location);
+                //获取openId
+                var hostInfo = "http://" + window.location.host;
+                var redirectUrl = hostInfo + "/dingdong/wechat/loginCallback?destUrl=" + destUrl;
+                var wxUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId
+                        + "&redirect_uri=" + encodeURIComponent(redirectUrl)
+                        + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+                //alert(wxUrl);
+                location.href = wxUrl;
+                return;
+            }
+        }
+
+        else {
+            var ddRole = getQueryString("role");  //$location.search().ddRole;
+            if (ddRole)
+                localStorage["ddRole"] = ddRole;
+            else
+                ddRole = localStorage["ddRole"];
+
+            if (ddRole == 1)
+            {
+                var doctorId = getQueryString("doctorId");  
+            	if (doctorId)localStorage["doctorId"] = doctorId;
+               	//openDoctor();
+            }
+            else
+            {
+                //openPatient();
+            }
+                
+        }
+
+	$scope.openDoctor=function() 
+	{
+		
+	  	$http.patch("http://www.yushansoft.com/dingdong/users/"+ddUserId+"/role?role=1").success(function(response) {
+    		window.location.href = "http://www.yushansoft.com/dingdong/v1/dddoctor/index.html";
+    	});
+    };
+
+	$scope.openPatient=function()
+	{
+		$http.patch("http://www.yushansoft.com/dingdong/users/"+ddUserId+"/role?role=0").success(function(response) {
+    		window.location.href = "http://www.yushansoft.com/dingdong/v1/ddpatient/index.html";
+    	});
+    };
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+
+});
+
+
+
+</script>
+</html>

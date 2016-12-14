@@ -1,0 +1,35 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/queueNum" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> 排队患者</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" overflow-scroll="false">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新...."
+                       refreshing-text="正在刷新!"
+                       refreshing-icon="ion-loading-b">
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="queue in queues">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" href="#/tab/funInformation/{{queue.userId}}">
+                    <img ng-src="{{queue.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+                    <h2  ><span style="float:left;" >{{queue.userName}}</span><span style="  float:right; ">排队号：{{queue.seq}}</span></h2>
+
+                    <p>{{queue.hospitalName}}</p>
+                    <p>排队时间：{{queue.createTime}}</p>
+
+                    <!--<p>地址：{{doctorFan.fansAddress}}</p>-->
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+            </div>
+        </ion-list>
+        <div  ng-show="showOrNot" class="center" >
+                还没有患者排队哦，继续加油吧!
+        </div>
+
+        <ion-infinite-scroll pulling-text="加载更多..." ng-if="vm.moredata" on-infinite="vm.loadMore()"
+                             distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

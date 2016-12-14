@@ -1,0 +1,32 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/account" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">待评价就诊</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+        <ion-list>
+            <div ng-repeat="register in needEvaluation">
+                <ion-item class="item-avatar"
+                          type="item-text-wrap">
+                    <img ng-src="http://www.yushansoft.com/dingdong/images/sys/evaluation_0.png">
+
+                    <h2>就诊人： {{register.patientName}}</h2>
+                    <p><i class="ion-ios-personadd"></i>&nbsp;&nbsp; 医生：{{register.doctorName}}</p>
+                    <p>  <i class="ion-ios-medkit"></i>&nbsp;&nbsp;医院：{{register.hospitalName}}</p>
+                    <p> <i class="ion-ios-list"></i>&nbsp;&nbsp;就诊时间：{{register.scheduleDate | dateFormat1}}&nbsp;{{register.timeSlot | timeSlot}}</p>
+                </ion-item>
+                <div class="button-bar">
+                    <a class="button  button-small  button-clear button-stable"> </a>
+                    <a class="button  button-small  button-clear button-stable"> </a>
+                    <a class="button button-positive " ng-click="addEvaluate(register)"> 我要评价</a>
+                </div>
+            </div>
+        </ion-list>
+        <div ng-show="showOrNot" class="center">
+            <div class="title">
+                当前没有待评价就诊！
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

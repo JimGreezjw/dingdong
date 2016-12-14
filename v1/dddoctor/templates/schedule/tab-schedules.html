@@ -1,0 +1,50 @@
+<ion-view >
+
+       <ion-header-bar class="bar bar-calm" align-title="center">
+
+
+
+           &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="button-bar">
+            <a ng-class="scheduleType0" ng-click="showSchedule('0')">列表模式</a>
+            <a ng-class="scheduleType1" ng-click="showSchedule('1')">日历模式</a>
+        </div>
+           &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+           <!--<h2  ng-hide="!calendarHide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>-->
+        <!--<a href="#/tab/scheduleDoctorHospitals" class="button button-icon ">添加</a>-->
+        <h2 class="button button-clear ion ion-android-add" ng-click="showConfirmeAdd('添加')" ng-hide="addHide">添加</h2>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" style="background-color: #F0F0F0">
+
+		<!--<div class="item item-divider" align="center">-->
+            <!--{{timeTitle}}-->
+        <!--</div>-->
+
+        <div align="center" style="background-color: #ffffff ;padding-left:0px; padding-top:0px" ng-hide="calendarHide">
+            <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+                      range-changed="reloadSource(startTime, endTime)"
+                      event-selected="onEventSelected(event)" title-changed="onTimeTitleChanged(title)"
+                      time-selected="onTimeSelected(selectedTime)">
+            </calendar>
+        </div>
+
+
+        <ion-list >
+            <div ng-repeat="schedule in schedules" ng-hide="showsHide">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap"  >
+                    <img ng-src="{{schedule.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+
+                    <h2>{{schedule.hospitalName}}</h2>
+                    <p>时间段：{{schedule.scheduleDate}}&nbsp;&nbsp;{{schedule.timeSlot | timeSlot}}</p>
+                    <p>放&nbsp;&nbsp;号：{{schedule.issueNum}}个&nbsp;|&nbsp;已预约：{{schedule.registeredNum}}个</p>
+                    <!--<ion-option-button class="button-assertive" ng-click="delaychedule(schedule)">-->
+                        <!--推迟-->
+                    <!--</ion-option-button>-->
+                </ion-item>
+            </div>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,107 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-calm">
+        <h1 class="title">叮咚门诊</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+
+        <div id="search-bar" ng-click="search()">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper" style="height: 25px" id="search-input">
+                    <i class="ion-search placeholder-icon"></i>
+                    <a style="color: #9e9e9e">搜索医生、医院</a>
+                </label>
+            </div>
+        </div>
+
+        <ion-slide-box style="padding-top:8px;" on-slide-changed="slideHasChanged($index)" show-pager="true"
+                       auto-play="true" does-continue="true">
+            <ion-slide>
+                <img style="max-height:140px;width:100%"
+                     src="http://www.yushansoft.com/dingdong/images/guanggao/go4.jpg"/>
+            </ion-slide>
+            <ion-slide style=".slider-pager{text-align:right}">
+                <img style="max-height:140px;width:100%"
+                     src="http://www.yushansoft.com/dingdong/images/guanggao/go5.jpg"/>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="bd" style="background-color: #F6F7F9">
+            <div class="weui_grids">
+                <a href="#/doctorDeptList/9" class="weui_grid">
+                    <div class="weui_grid_icon" style>
+                        <i class="icon icon_button"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        心血管内科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/7" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_cell"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        消化内科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/8" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_toast"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        神经内科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/36" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_dialog"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        神经外科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/35" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_progress"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        普外科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/256" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_msg"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        骨科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/44" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_article"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        泌尿外科
+                    </p>
+                </a>
+                <a href="#/doctorDeptList/259" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_actionSheet"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        肿瘤科
+                    </p>
+                </a>
+                <a href="#/deptListAll" class="weui_grid">
+                    <div class="weui_grid_icon">
+                        <i class="icon icon_icons"></i>
+                    </div>
+                    <p class="weui_grid_label">
+                        更多。。
+                    </p>
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

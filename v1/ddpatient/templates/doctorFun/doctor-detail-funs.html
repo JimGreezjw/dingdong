@@ -1,0 +1,45 @@
+<ion-view>
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/doctorsFan" class="button button-clear ion ion-chevron-left">返回</a>
+        <!--<a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <h1 class="title">可预约日程</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+
+        <div class="list card">
+
+            <a href="#/tab/doctors-funs/{{doctor.id}}/doctorInfor" class="item item-avatar item-icon-right">
+                <img ng-src="{{doctor.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                <h2>{{doctor.name}}</h2>
+                <p>{{doctor.hospitalName}}</p>
+                <p>{{doctor.level}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+
+        <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+                  range-changed="reloadSource(startTime, endTime)"
+                  event-selected="onEventSelected(event)" title-changed="onTimeTitleChanged(title)"
+                  time-selected="onTimeSelected(selectedTime)">
+        </calendar>
+        <div class="item item-divider" align="center">
+        </div>
+
+    </ion-content>
+
+
+    <div class="bar bar-subfooter bar-balanced">
+        <div class="title">
+            <a href="#/tab/hospitals/{{doctor.id}}"
+               class="button button-clear button-icon icon ion-ios7-videocam-outline"
+               ng-disabled="noQueue" style="padding-top:5px; width:100%;">已约满，我要排队
+            </a>
+        </div>
+
+    </div>
+
+</ion-view>

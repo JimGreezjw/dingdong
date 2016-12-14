@@ -1,0 +1,34 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/user/wxpay" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">账户充值</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding" overflow-scroll="false">
+
+        <div class="item item-image">
+            <img src="http://www.yushansoft.com/dingdong/images/guanggao/go5.jpg">
+        </div>
+
+        <p style="text-align:center;font: normal bold 2em 华文楷体;line-height: 1.5;color: black;padding: 1em">
+            叮咚门诊账户充值</p>
+
+        <label class="item item-input" style="border: none;background-color: white">
+
+            <i class="icon ion-social-yen placeholder-icon">&nbsp;&nbsp;</i>
+            <input style="height: 55px;font-size: 20px;" type="tel" ng-model="ctrlScope.totalFee" placeholder="请输入充值金额">
+        </label>
+
+        <div class="row">
+            <div class="col col-30"></div>
+            <div class="col col-50">
+                <button class="button button-energized"
+                        ng-click="userRechargeConfirm()">立&nbsp;即&nbsp;充&nbsp;值
+                </button>
+            </div>
+            <div class="col col-20"></div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

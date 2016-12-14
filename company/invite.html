@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+
+	<link href="/v1/ddpatient/lib/ionic/css/ionic.css" rel="stylesheet">
+	<script src="/v1/ddpatient/lib/ionic/js/ionic.bundle.js"></script>
+	<!--微信jssdk -->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+	<style>
+		li{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+		}
+		</style>
+	
+
+
+</head>
+
+<body>
+
+    <ion-header-bar class="bar-calm">
+        <h1 class="title">好友邀请</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+
+				<h4>邀请好友一起使用叮咚门诊吧！</h4>
+				<table cellpadding='5px' width='100%' frame="below" >
+					<tr>
+						<td align='center'><div class="qr-code">
+						<img id='qr' style="width:200px;height:200px" src="http://www.yushansoft.com/dingdong/images/ddmzQr.png" ></img></div></td>
+					</tr>
+				</table>
+
+				<div id="divInvite">
+					<ul>您可采用以下任一方式 <b>分享</b></ul>
+					 <li>让好友用微信扫一扫此二维码</li>
+					 <li>点击微信右上角 "发送给朋友"或者"分享到朋友圈"</li>
+					 <li>将二维码图片保存，然后”发送给朋友"，让朋友长按“识别二维码”</li>
+					 </ul>
+				</div>
+				<div id="divAttention">
+					<img   src="http://www.yushansoft.com/dingdong/images/focus.png" width='100%'></img>
+				</div>
+		</ion-content>
+	</div>
+</body>
+</html>

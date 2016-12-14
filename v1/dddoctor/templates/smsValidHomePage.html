@@ -1,0 +1,62 @@
+<ion-view view-title="叮咚医邦" >
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <h1 class="title">欢迎入驻—叮咚医邦</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+        <div width="100%"    border="0" style="margin:0 0 0 0" >
+            <img  style="max-height:140px;width:100%" src="http://www.yushansoft.com/dingdong/images/guanggao/ddyb.jpg"/>
+        </div>
+        <!--<div class="list">-->
+
+            <!--<label class="item item-input">-->
+                <!--<span class="input-label">手&nbsp;&nbsp;&nbsp;&nbsp;机：</span>-->
+                <!--<input type="tel" ng-model="ctrlScope.mobileNo"   ng-minlength="11"  ng-maxlength='11' placeholder="请输入手机号码" required >-->
+            <!--</label>-->
+            <!--<label class="item item-input">-->
+                <!--<span class="input-label">验证码：</span>-->
+                <!--<input type="text" ng-model="ctrlScope.msgCode"  placeholder="请输入验证码" required >-->
+            <!--</label>-->
+            <!--<div class="item ">-->
+                <!--&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;-->
+                <!--<button class="button button-positive" ng-disabled="getValidDisable" ng-click="showConfirmeGetValid('获取验证码')" > {{countdown}}</button>-->
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<button class="button button-positive" ng-model="ctrlScope.PutValid" ng-click="showConfirmePutValid(this)" >&nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;登&nbsp;&nbsp;陆&nbsp;&nbsp;</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <br/>
+        <div style="border-top:1px solid lightgrey;text-align:center;height: 47px;">
+            <!--<div style="float:left;border:0px ;text-align:center;vertical-align:middle;"> <span class="input-label" style="display:block; width:100px; height:47px; line-height:30px;" >&nbsp;手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</span></div>-->
+            <div style="float:left;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div style="float:left;width:35%;border:0px ;text-align:center;"  >  <input type="tel" style="font-size:18px;" ng-model="ctrlScope.mobileNo"   ng-minlength="11"  ng-maxlength='11' placeholder="请输入手机号码" required ></div>
+            <div style="float:right;border:0px ;text-align:center">   <button  class="item button" style="height: 47px;" ng-disabled="getValidDisable" ng-click="showConfirmeGetValid('获取验证码')" > {{countdown}}</button>      </div>
+        </div>
+        <div style="border:1px solid lightgrey;text-align:center;height: 47px;">
+            <!--<div style="float:left;border:0px  ;text-align:center"> <span class="input-label" style=" display:block; width:100px; height:47px; line-height:30px;">&nbsp;验&nbsp;证&nbsp;码：</span></div>-->
+            <div style="float:left;border:0px ;text-align:center;vertical-align:middle;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div style="float:left;width:35%;border:0px ;text-align:center" >  <input type="tel"style="font-size:18px;" ng-model="ctrlScope.msgCode"  placeholder="请输入验证码" required ></div>
+            <div style="float:right;"> </div>
+
+
+
+        </div>
+    <br/>
+        <div style="border:0px solid #000000;text-align:center">
+            <div style="float:left;border:0px ;width:32%;text-align:center">&nbsp;</div>
+            <div style="float:left;width:40%;border:0px ;text-align:center" >   <button class="button button-positive" ng-model="ctrlScope.PutValid" ng-click="showConfirmePutValid(this)" >&nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;登&nbsp;&nbsp;陆&nbsp;&nbsp;</button>
+            </div>
+                <div class="clear"></div><!-- html注释：清除float产生浮动 -->
+        </div>
+
+    <br/>
+    <div>
+        <p class="ex1">
+
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;“叮咚医邦”唯医生使用，点击“提交登陆”按钮，即表示同意
+            <a href="#/navigationTerms"> 《叮咚医邦服务协议》</a>。
+        </p>
+    </div>
+
+    </ion-content>
+</ion-view>

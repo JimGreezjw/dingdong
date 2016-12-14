@@ -1,0 +1,78 @@
+﻿<ion-view>
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <!--<a href="#/tab/doctors/{{doctor.id}}" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">{{doctor.name}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+
+        <div class="list card">
+
+            <div class="item item-thumbnail-left">
+                <img ng-src="{{doctor.headImgUrl}}"
+                     err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                <h2>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        {{doctor.name}}
+                        <a class="tab-item">
+                            <span ng-hide="custom" ng-click="doctorFan()"><i class="icon ion-ios-star"></i> 关注</span>
+                            <span ng-show="custom" ng-click="delFan()"><i
+                                    class="icon ion-ios-star-outline"></i>取消关注</span>
+                        </a>
+                    </div>
+                </h2>
+
+                <p>{{doctor.hospitalName}}</p>
+
+                <p>{{doctor.level}}</p>
+            </div>
+            <div>
+                <h4>执业地点：</h4>
+                <p>{{doctor.hospitalNames}}</p>
+            </div>
+        </div>
+
+        <div class="item item-body">
+            <p>
+                <article class="ddarticle"> {{doctor.introduction}}</article>
+            </p>
+            <!--<p>-->
+            <!--<a href="#" class="subdued">1 关注</a>-->
+            <!--<a href="#" class="subdued">5 评论</a>-->
+            <!--</p>-->
+        </div>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+
+            <a class="tab-item" href="#/tab/user/doctorEvaluationList/{{doctor.id}}">
+                <i class="icon ion-chatbox"></i>
+                查看评论
+            </a>
+            <a class="tab-item" ng-click="showShare('分享名片')">
+                <i class="icon ion-share"></i>
+                分享名片
+            </a>
+        </div>
+        <table width="100%" height="80%" class="tableStyle">
+            <tr class="tableTrStyle" height="50%" width="100%">
+                <td align="center">
+                    <img width="80%" height="55%" ng-src="http://www.yushansoft.com/dingdong/ddmz/qr/{{doctor.id}}">
+
+                </td>
+            </tr>
+        </table>
+
+
+    </ion-content>
+    <div class="bar bar-subfooter bar-balanced">
+        <div class="title">
+            <a href="#/tab/doctors/{{doctor.id}}" class="button button-clear button-icon icon ion-ios7-videocam-outline"
+               ng-disabled="noQueue">我要预约挂号
+            </a>
+        </div>
+
+    </div>
+
+</ion-view>

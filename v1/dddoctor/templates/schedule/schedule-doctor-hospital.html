@@ -1,0 +1,33 @@
+<ion-view view-title="医院">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <!--<a href="#/tab/schedules" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> 可排医院</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="Pull to refresh..."
+                       refreshing-text="Refreshing!"
+                       refreshing-icon="ion-loading-b">
+
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="doctorHospital in hospitals">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" 
+                      type="item-text-wrap" href="#/schedules/addSchedule/{{doctorHospital.id}}">
+ 					 <img ng-src="{{doctorHospital.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+                    <h2>{{doctorHospital.hospitalName}}</h2>
+                    <p>科室：{{doctorHospital.deptName}}</p>
+					<p>放号：{{doctorHospital.minQueue}}个&nbsp;|&nbsp;挂号费：{{doctorHospital.registerFee}}元</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                    <!--<ion-option-button class="button-assertive" ng-click="remove(doctorHospital)">-->
+                        <!--删除-->
+                    <!--</ion-option-button>-->
+            </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+		
+</ion-view>

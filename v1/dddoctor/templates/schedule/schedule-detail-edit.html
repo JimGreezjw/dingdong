@@ -1,0 +1,52 @@
+<ion-view view-title="叮咚医邦">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+       <h1 class="title">{{hospital.hospitalName}}</h1>
+    </ion-nav-bar>
+    <ion-content class="padding">
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="{{hospital.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+
+                <h2>{{hospital.hospitalName}}&nbsp;|&nbsp;{{hospital.deptName}}&nbsp;&nbsp;<img ng-src="{{hospital.status | queueStatus}}" ></h2>
+                <p>放号：{{hospital.minQueue}}个&nbsp;|&nbsp;挂号费：{{hospital.registerFee}}元</p>
+            </div>
+        </div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;室：</span>
+                <input type="text" ng-model="ctrlScope.deptName"  placeholder="请输入科室名" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">放号数（个）：</span>
+                <input type="tel" ng-model="ctrlScope.minQueue"  placeholder="请输入放号数"  ng-change="change()" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">挂号费（元）：</span>
+                <input type="tel" ng-model="ctrlScope.registerFee" placeholder="请输入挂号费" required>
+            </label>
+        </div>
+        <br/>
+    </ion-content>
+    <div class="bar bar-subfooter">
+        <table width="100%">
+            <tr>
+                <td width="33%" align="center">
+
+                </td>
+                <td width="33%" align="center">
+                    <button ng-click="showConfirmSave('保存')" class="button button-positive" ng-disabled="oderSet">
+                        保存变更
+                    </button>
+                </td>
+                <td width="33%" align="center">
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</ion-view>

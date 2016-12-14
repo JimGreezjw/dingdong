@@ -1,0 +1,39 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/account" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">我的积分</h1>
+        <!--<h2 class="button button-clear " ng-click="showConfirme('说明')">说明</h2>-->
+        <a href="#/scoreTerms"  class="button button-clear ion" >说明</a>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding" overflow-scroll="false">
+
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="vm.doRefresh()"></ion-refresher>
+
+        <div class="item item-avatar" style="background:#ffc900;">
+            <img ng-src="http://www.yushansoft.com/dingdong/images/sys/score.png">
+            <h2>账户积分（咚）</h2>
+            <h1 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{score}}</h1>
+        </div>
+        <ddexpander  expander-title='expanderTitle'>
+            <ion-list>
+                <div ng-repeat="userTransfer in vm.transferList">
+                    <ion-item class="item-remove-animate item-avatar item-icon-right"
+                              type="item-text-wrap">
+                        <img ng-src="{{userTransfer.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/score.png">
+                        <h2  ><span style="float:left;" >{{userTransfer.reasonDesc}}</span><span style="  float:right; " ng-style="{'color': {true:'green',false:'red'}[userTransfer.amount>0]}">{{userTransfer.amount}}咚{{userTransfer.status | transferStatus}}</span></h2>
+                        <p ><span style=" float:left; " >{{userTransfer.fromUserName}}</span><span style="float:right;" >{{userTransfer.transactionTime| dateFormat1}}</span></p>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </ddexpander>
+
+
+        <div ng-show="showOrNot" class="center">
+            <div class="title">
+                还没有积分记录!
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

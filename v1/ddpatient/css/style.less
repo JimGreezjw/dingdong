@@ -1,0 +1,640 @@
+html, body {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #FBF9FE;
+}
+
+.weui_grid_icon{
+  width: 50px;
+  height: 50px;
+  margin:0 auto;
+}
+
+.icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.icon_button {
+    background: url("../images/icon_nav_heart.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_cell {
+    background: url("../images/icon_nav_cell.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_toast {
+    background: url("../images/icon_nav_shenjing.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_dialog {
+    background: url("../images/icon_nav_dialog.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_progress {
+    background: url("../images/icon_nav_progress.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_msg {
+    background: url("../images/icon_nav_msg.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_article {
+    background: url("../images/icon_nav_article.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_actionSheet {
+    background: url("../images/icon_nav_zhongliu.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_icons {
+    background: url("../images/icon_nav_icons.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+
+.icon_tab {
+    background: url("../images/icon_nav_tab.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.icon_search_bar {
+    background: url("../images/icon_nav_search_bar.png") no-repeat;
+    background-size: 50px 50px;
+}
+
+.page_title {
+    text-align: center;
+    font-size: 34px;
+    color: #3CC51F;
+    font-weight: 400;
+    margin: 0 15%;
+}
+
+.expander {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.expander > .title {
+    background-color: black;
+    color: white;
+    padding: .1em .3em;
+    cursor: pointer;
+}
+
+.expander > .body {
+    padding: .1em .3em;
+}
+
+.ddarticle {
+    text-indent: 2em
+}
+
+p.ex1 {
+    /*font-style font-variant font-weight font-size font-family。 */
+    font: normal bold 1em 楷体_GB2312;
+    line-height: 1.5
+}
+
+.fontNum1 {
+    font: normal bold 1.3em 黑体;
+    line-height: 1.5;
+    color: black;
+}
+
+.fontNum2 {
+    font: normal 1em 黑体;
+    line-height: 1.5;
+    color: black;
+}
+
+.fontNum3 {
+    font: normal 1.1em 黑体;
+    line-height: 1.5;
+    color: black;
+}
+
+p.ex2 {
+    /*font-style font-variant font-weight font-size font-family。 */
+    font: normal bold 20px verdana;
+}
+
+p.ex3 {
+    /*font-style font-variant font-weight font-size font-family。 */
+    font: normal 12px verdana;
+}
+
+table.tableStyle {
+    border-collapse: separate;
+    border-spacing: 5px;
+    padding: 10px;
+
+}
+
+tr.tableTrStyle {
+    border: 1px solid lightgrey;
+    border-collapse: separate;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+td.tableTdStyle {
+    border: 1px solid lightgrey;
+    border-collapse: separate;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/*用于暂时不能用的功能*/
+td.tableDisabledTdStyle {
+    border: 1px solid lightgrey;
+    border-collapse: separate;
+    padding: 10px;
+    vertical-align: middle;
+    opacity: 0.4;
+}
+
+/*空白页显示文字*/
+.center {
+    MARGIN-RIGHT: auto;
+    MARGIN-LEFT: auto;
+    height: 200px;
+    font-family: "黑体";
+    vertical-align: middle;
+    line-height: 200px;
+    text-align: center;
+    font-size: larger;
+}
+
+.div {
+    width: 100%;
+    padding: 10px;
+    border: 1px
+}
+
+.div_left {
+    float: left;
+    width: 33%;
+    border: 0px solid #00F;
+    height: 50px;
+    text-align: center
+}
+
+.div_right {
+    float: right;
+    width: 33%;
+    border: 0px solid #00F;
+    height: 50px;
+    text-align: center
+}
+
+.div_money {
+    float: left;
+    width: 50%;
+    border: 1px solid lightgrey;
+    height: 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.div_score {
+    float: right;
+    width: 50%;
+    border: 1px solid lightgrey;
+    height: 40px;
+    background-color: #ffffff;
+    text-align: center
+}
+
+.clear {
+    clear: both
+}
+
+.div_left_half {
+    float: left;
+    width: 50%;
+    border: 0px solid #00F;
+    height: 50px;
+    text-align: center
+}
+
+.div_right_half {
+    float: right;
+    width: 50%;
+    border: 0px solid #00F;
+    height: 50px;
+    text-align: center
+}
+
+/*底部的红点消息显示*/
+.tab-red-point-mine:after {
+    position: absolute;
+    content: ' ';
+    height: 9px;
+    width: 9px;
+    border-radius: 6px;
+    background-color: red;
+    top: 7px;
+    right: 10%;
+}
+
+/*星评论*/
+.rating {
+    color: #a9a9a9;
+    margin: 10px;
+    padding: 0px;
+    font: bold 30px arial;
+}
+
+.ratingsmall {
+    color: #a9a9a9;
+    margin: 2px;
+    padding: 0px;
+    font: bold 20px arial;
+}
+
+ul.rating {
+    display: inline-block;
+    margin: 10px;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 6px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.starsmall {
+    margin: 1px;
+    display: inline;
+    font: bold 20px arial;
+    cursor: pointer;
+}
+
+.starbig {
+    margin: 1.5px;
+    display: inline;
+    font: bold 30px arial;
+    cursor: pointer;
+}
+
+.rating .filled {
+    color: #0a9dc7;
+}
+
+.ratingsmall .filled {
+    color: #0a9dc7;
+}
+
+.slider-pager {
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    width: 100%;
+    height: 5px;
+    text-align: right;
+}
+
+.slider-pager .slider-pager-page {
+    display: inline-block;
+    margin: 0px 3px;
+    width: 10px;
+    color: rgba(115, 115, 115, 0.64);
+    text-decoration: none;
+    opacity: 0.1;
+}
+
+#HosStyle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    min-width: 34px;
+    min-height: 34px;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+#WxpayButtonStyle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 5px;
+    min-width: 34px;
+    min-height: 34px;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+#WxpayButtonStyle1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 75px;
+    min-width: 34px;
+    min-height: 34px;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.wide-as-needed {
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+div.hscroller {
+    position: relative;
+    top: 10%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+div.hscroller {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding-left: 3px;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+}
+
+div.hscroller::-webkit-scrollbar {
+    display: none;
+}
+
+div.hscroller-card {
+    width: 100px;
+    height: 95px;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+div.hscroller-card img {
+    height: 56px;
+    width: 56px;
+}
+
+div.hscroller-card div.hscroller-label {
+    font-family: "黑体", sans-serif;
+    font-size: 9px;
+    line-height: 14px;
+    padding: 0 0em;
+    margin: 0;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.hscroller-card:last-child {
+    margin-right: 10px;
+}
+
+div.hscroller-label {
+    text-align: center;
+}
+
+/*edited by zhoujiwu*/
+.bar-footer {
+    overflow: visible !important;
+}
+
+.bar-footer textarea {
+    resize: none;
+    height: 25px;
+    /* fixes an ios bug bear */
+}
+
+button.ion-android-send {
+    padding-top: 2px;
+    /* add this to keep your footer buttons down
+at the bottom as the textarea resizes */
+}
+
+.footer-btn-wrap {
+    position: relative;
+    height: 100%;
+    width: 50px;
+    top: 7px;
+}
+
+.footer-btn {
+    position: absolute !important;
+    bottom: 0;
+}
+
+.input-noborder {
+    border: none
+}
+
+img.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+}
+
+img.profile-pic.left {
+    left: 10px;
+}
+
+img.profile-pic.right {
+    right: 10px;
+}
+
+.ion-email {
+    float: right;
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.message {
+    font-size: 14px;
+}
+
+.message-detail {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.bar.item-input-inset .item-input-wrapper input {
+    width: 100% !important;
+}
+
+.message-wrapper {
+    position: relative;
+}
+
+.message-wrapper:last-child {
+    margin-bottom: 10px;
+}
+
+.chat-bubble {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    margin: 10px;
+    max-width: 80%;
+}
+
+.chat-bubble:before {
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    width: 9px;
+    position: absolute;
+    bottom: -7.5px;
+}
+
+.chat-bubble.left {
+    background-color: #e6e5eb;
+    float: left;
+    margin-left: 55px;
+}
+
+.chat-bubble.left:before {
+    background-color: #e6e5eb;
+    left: 10px;
+    -webkit-transform: rotate(70deg) skew(5deg);
+}
+
+.chat-bubble.right {
+    background-color: #158ffe;
+    color: #fff;
+    float: right;
+    margin-right: 55px;
+}
+
+.chat-bubble.right:before {
+    background-color: #158ffe;
+    right: 10px;
+    -webkit-transform: rotate(118deg) skew(-5deg);
+}
+
+.chat-bubble.right a.autolinker {
+    color: #fff;
+    font-weight: bold;
+}
+
+.user-messages-top-icon {
+    font-size: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+    right: 5px;
+}
+
+.msg-header-username {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+}
+
+input,
+textarea,
+.item-input,
+.item-input-wrapper {
+    background-color: #f4f4f4 !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.cf {
+    clear: both !important;
+}
+
+a.autolinker {
+    color: #3b88c3;
+    text-decoration: none;
+    /* loading */
+}
+
+.loader-center {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.loader .ion-loading-c {
+    font-size: 64px;
+}
+
+

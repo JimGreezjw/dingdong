@@ -1,0 +1,25 @@
+<ion-view view-title="叮咚医邦">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+       <h1 class="title">患者排队</h1>
+    </ion-nav-bar>
+    <ion-content class="row-no-padding">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新...."
+                       refreshing-text="正在刷新!"
+                       refreshing-icon="ion-loading-b">
+
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="queue in queues">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" >
+                    <img ng-src="{{queue.logo}}" err-src="http://www.yushansoft.com/dingdong/images/hospital/hospital.png">
+                    <h2>{{queue.hospitalName}}</h2>
+                    <p>排队数量：{{queue.queueNum}}&nbsp;&nbsp;&nbsp;人</p>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

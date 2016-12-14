@@ -1,0 +1,30 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">选择就诊医院</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+        <ul class="list">
+            <ion-checkbox ng-repeat="hospital in hospitals" ng-model="chk"
+                          ng-change="hospitalChanged(chk,hospital)">
+                <div class="item item-avatar" href="#">
+                    <img ng-src="http://www.yushansoft.com/dingdong/images/hospital/hospital_0.png">
+                    <h2> {{hospital.hospitalName}}</h2>
+                    <p> 科室：{{hospital.deptName}}</p>
+                    <p> 挂号费：{{hospital.registerFee}}&nbsp;&nbsp;元</p>
+                    <p> 最低出诊人数：<b>{{hospital.minQueue}}</b>&nbsp;&nbsp;人</p>
+                    <p> 当前排队人数：<b>{{hospital.queueSize}}</b>&nbsp;&nbsp;人</p>
+                </div>
+            </ion-checkbox>
+        </ul>
+    </ion-content>
+    <div class="bar bar-subfooter bar-balanced">
+        <div class="title">
+            <a class="button button-clear button-icon icon ion-ios7-videocam-outline" ng-click="userQueue()"
+               style="padding-top:5px; width:100%;">开始排队
+            </a>
+        </div>
+
+    </div>
+</ion-view>

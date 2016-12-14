@@ -1,0 +1,53 @@
+<ion-view view-title="叮咚名医">
+    <!--
+    <ion-header-bar class="bar-calm">
+        <h1 class="title">患者信息</h1>
+    </ion-header-bar>
+    -->
+    <ion-content scroll="auto">
+        <br/>
+        <div class="list card" height="40%">
+            <ion-slide-box auto-play="true" does-continue="true" style="height:100%; max-height:480px;"
+                           on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                    <img height="100%" width="100%" src="http://www.yushansoft.com/dingdong/images/guanggao/go1.png"/>
+                </ion-slide>
+                <ion-slide>
+                    <img height="100%" width="100%" src="http://www.yushansoft.com/dingdong/images/guanggao/go2.png"/>
+                </ion-slide>
+                <ion-slide>
+                    <img height="100%" width="100%" src="http://www.yushansoft.com/dingdong/images/guanggao/go3.jpg"/>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <table width="100%" height="40%" class="tableStyle">
+            <tr class="tableTrStyle" height="100%">
+                <td align="center" width="33%" class="tableTdStyle">
+                    <a href="#/tab/patientsToday"> <img height="42" width="42"
+                                                        src="http://www.yushansoft.com/dingdong/images/sys/patientsToday.png"/></a><br>
+                    <p class="ex1">今日患者</p>
+                </td>
+                <td align="center" width="33%" class="tableTdStyle">
+                    <a href="#/tab/patientsRegisters"><img height="42" width="42"
+                                                           src="http://www.yushansoft.com/dingdong/images/sys/appointedPatients.png"/></a><br>
+                    <p class="ex1">已约患者</p>
+                </td>
+
+            </tr>
+            <tr class="tableTrStyle" height="100%">
+                <td align="center" width="33%" class="tableTdStyle">
+                    <a href="#/tab/patientsHistory"><img height="42" width="42"
+                                                         src="http://www.yushansoft.com/dingdong/images/sys/treatmentHistory.png"/></a><br>
+                    <p class="ex1">历史患者</p>
+                </td>
+                <td align="center" width="33%" class="tableTdStyle">
+                    <a href="#/tab/queueNum"> <img height="42" width="42"
+                                                   src="http://www.yushansoft.com/dingdong/images/sys/funs.png"/></a><br>
+                    <p class="ex1">排队情况</p>
+                </td>
+            </tr>
+        </table>
+
+
+    </ion-content>
+</ion-view>

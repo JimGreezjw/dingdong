@@ -1,0 +1,67 @@
+<ion-nav-view name="tab-doctorsFan">
+    <ion-view view-title="叮咚门诊" ng-switch="viewStatus">
+
+        <ion-header-bar class="bar bar-calm" align-title="center">
+
+            <a ng-click="goBack()" class="button button-clear ion ion-chevron-left">返回</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="button-bar">
+                <button class="{{viewStatus==1 ?'button button-positive':'button'}}" ng-click="showSchedule('1')">科室列表
+                </button>
+                <button class="{{viewStatus==2 ?'button button-positive':'button'}}" ng-click="showSchedule('2')">推荐医生
+                </button>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </ion-header-bar>
+
+        <ion-content overflow-scroll="false">
+
+            <div id="search-bar">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper" id="search-input">
+                        <i class="ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="搜索科室、医生" ng-model="vm.query">
+                    </label>
+                </div>
+            </div>
+            <div ng-switch-when="1">
+                <div data-ng-repeat="hospitalDept in hospitalDepts | filter:vm.query " class="alpha_list">
+                    <ion-item class="item  item-divider-ios item-icon-right" id="index_{{hospitalDept.id}}"
+                              ng-click="toggleGroup(hospitalDept)">
+                        <a class="fontNum1"> {{hospitalDept.deptName}}</a>（共{{hospitalDept.total}}人）
+                        <i class="icon ion-chevron-down icon-accessory"></i>
+                    </ion-item>
+                    <ion-item ng-show="isGroupShown(hospitalDept)" ng-repeat="doctorHospital in hospitalDept.doctorHospitals"
+                              class="item-avatar item-icon-right item-stable"
+                              type="item-text-wrap" href="#/doctors/{{doctorHospital.doctorId}}/doctorInforShow">
+                        <img ng-src="{{doctorHospital.doctor.headImgUrl}}"
+                             err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                        <p style="padding-bottom: 0.2em"><a class="fontNum1"> {{doctorHospital.doctor.name}} &nbsp;</a><a
+                                class="fontNum2">{{doctorHospital.doctor.level}},{{doctorHospital.doctor.teacherLevel}}</a></p>
+                        <p style="padding-bottom: 0.2em"><a
+                                class="fontNum3">擅长：</a>{{doctorHospital.doctor.specialty}}</p>
+                    </ion-item>
+                </div>
+
+            </div>
+
+            <div ng-switch-when="2">
+                <ion-item ng-repeat="doctor in doctors | filter:vm.query "
+                          class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" href="#/doctors/{{doctor.doctorId}}/doctorInforShow">
+                    <img ng-src="{{doctor.doctor.headImgUrl}}"
+                         err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+
+                    <p style="padding-bottom: 0.2em"><a class="fontNum1"> {{doctor.doctor.name}}&nbsp;</a><a
+                            class="fontNum2">{{doctor.doctor.level}},{{doctor.doctor.teacherLevel}}</a></p>
+
+                    <p style="padding-bottom: 0.2em">{{doctor.doctor.deptName}}</p>
+
+                    <p style="padding-bottom: 0.2em"><a
+                            class="fontNum3">擅长：</a>{{doctor.doctor.specialty}}</p>
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-view>
+</ion-nav-view>

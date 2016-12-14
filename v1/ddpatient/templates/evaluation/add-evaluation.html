@@ -1,0 +1,38 @@
+<ion-nav-view name="tab-doctorsFan">
+    <ion-view view-title="叮咚门诊">
+
+        <ion-header-bar class="bar bar-calm" align-title="center">
+            <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+            <h1 class="title">诊疗评价</h1>
+            <h2 class="button button-clear ion ion-checkmark-round" ng-click="addEval('添加')">保存</h2>
+        </ion-header-bar>
+        <ion-content class="row-no-padding">
+            <div class="hide-on-keyboard-open">
+                <div star rating-value="ratingValTreatmentEffect" max="max" on-hover="onHoverTreatmentEffect"
+                     on-leave="onLeaveTreatmentEffect" readonly="{{readonly}}" starstyle="rating"
+                     starrealstyle="starbig"></div>
+                <p style="text-align: center">觉得怎么样，给疗效打个分吧！</p>
+                <div star rating-value="ratingValServiceAttitude" max="max" on-hover="onHoverServiceAttitude"
+                     on-leave="onLeaveServiceAttitude" readonly="{{readonly}}" starstyle="rating"
+                     starrealstyle="starbig"></div>
+
+                <p style="text-align: center">觉得怎么样，给态度打个分吧！</p>
+
+                <br/>
+
+                <div ng-repeat="tag in tags" style="display:inline-block;text-align:center;margin:0 auto;padding: 5px">
+                    <a class="button {{tagType}}" ng-click="getTag(tag)">{{tag.tagName}}</a>&nbsp;&nbsp;&nbsp;
+                </div>
+                <br/>
+
+            </div>
+            <label class="item item-input item-stacked-label">
+                <p>评论</p>
+                <textarea rows="6" ng-model="ctrlScope.evalDesc" placeholder="对医生的诊疗还满意吗？医生的诊治疗效和态度如何？"></textarea>
+            </label>
+
+
+        </ion-content>
+    </ion-view>
+
+</ion-nav-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="叮咚医邦" >
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/accountAll" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">手机核验</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding">
+        <!--<div width="100%"    border="0" style="margin:1% 0 0 0" >-->
+            <!--<img  style="max-height:140px;width:100%" src="http://www.yushansoft.com/dingdong/images/guanggao/go5.jpg"/>-->
+        <!--</div>-->
+        <br/>
+
+        <!--<div class="list">-->
+            <!--<label class="item item-input">-->
+                <!--您已核验的手机号码：{{ctrlScope.phoneOld}}-->
+            <!--</label>-->
+        <!--</div>-->
+
+
+        <div style="border-top:1px solid lightgrey;text-align:center;height: 47px;">
+            <div style="float:left;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <!--<div style="float:left;border:0px ;text-align:center;vertical-align:middle;"> <span class="input-label" style="display:block; width:100px; height:47px; line-height:30px;" >&nbsp;手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</span></div>-->
+            <div style="float:left;width:35%;border:0px ;text-align:center;"  >  <input type="tel" style="font-size:18px;"   ng-model="ctrlScope.mobileNo"   ng-minlength="11"  ng-maxlength='11' placeholder="请输入手机号码" required ></div>
+            <div style="float:right;border:0px ;text-align:center">   <button  class="item button" style="height: 47px;" ng-disabled="getValidDisable" ng-click="showConfirmeGetValid('获取验证码')" > {{countdown}}</button>      </div>
+        </div>
+        <div style="border:1px solid lightgrey;text-align:center;height: 47px;">
+            <div style="float:left;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <!--<div style="float:left;border:0px  ;text-align:center"> <span class="input-label" style=" display:block; width:100px; height:47px; line-height:30px;">&nbsp;验&nbsp;证&nbsp;码：</span></div>-->
+            <div style="float:left;width:35%;border:0px ;text-align:center" >  <input type="tel"style="font-size:18px;" ng-model="ctrlScope.msgCode"  placeholder="请输入验证码" required ></div>
+            <div style="float:right;"> </div>
+
+
+
+        </div>
+        <br/>
+
+        <div>
+            <h2 id='navigation' class="button button-positive" ng-click="showConfirmePutValid(this)" >&nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;核&nbsp;&nbsp;验&nbsp;&nbsp;</h2>
+        </div>
+
+        <!--<div style="border:0px solid #000000;text-align:center">-->
+            <!--<div style="float:left;border:0px ;width:32%;text-align:center">&nbsp;</div>-->
+            <!--<div style="float:left;width:40%;border:0px ;text-align:center" >   <button class="button button-positive" ng-model="ctrlScope.PutValid" ng-click="showConfirmePutValid(this)" >&nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;核&nbsp;&nbsp;验&nbsp;&nbsp;</button>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>&lt;!&ndash; html注释：清除float产生浮动 &ndash;&gt;-->
+        <!--</div>-->
+        <br/>
+        <br/>
+        <br/>
+        <div>
+            <p class="ex1">
+                &nbsp;&nbsp;&nbsp;&nbsp;为了保护您的账户安全，便于今后为您服务，请对您的手机进行核验，若更换手机号，也请您及时进行核验。<br/>
+            </p>
+        </div>
+        <br/>
+    </ion-content>
+</ion-view>

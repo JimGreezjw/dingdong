@@ -1,0 +1,36 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <!--<a href="#/tab/hospitals" class="button button-clear ion ion-chevron-left" >返回</a>-->
+        <a href="#/scheduleHospitals" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> 添加我的医院</h1>
+        <h2 class="button button-clear ion ion-checkmark-round" ng-click="showConfirmeAdd('添加')" >保存</h2>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <div class="list">
+
+            <label class="item item-input">
+                <button ng-model="ctrlScope.getHospital" ng-click="getHospital()"  class="button button-clear ion ion-android-add" >&nbsp;&nbsp;医&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <input style=" text-align:right" type="text" name="name" ng-model="ctrlScope.hospitalName" placeholder="请选择医院" required readonly>
+            </label>
+
+            <label class="item item-input">
+                <button ng-model="ctrlScope.getHospital" ng-click="getDept(ctrlScope.hospitalId)"  class="button button-clear ion ion-android-add" >&nbsp;&nbsp;科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;室：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <input style=" text-align:right" type="text" name="name" ng-model="ctrlScope.deptName" placeholder="请选择科室" required readonly>
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">放号数（个）：</span>
+                <input style=" text-align:right" type="number" ng-model="ctrlScope.minQueue"  placeholder="请输入放号数"  ng-change="change()" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">挂号费（元）：</span>
+                <input style=" text-align:right" type="number" ng-model="ctrlScope.registerFee" placeholder="请输入挂号费" required>
+            </label>
+        </div>
+        <br/>
+    </ion-content>
+
+</ion-view>

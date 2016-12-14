@@ -1,0 +1,27 @@
+<ion-header-bar class="bar bar-calm" align-title="center">
+    <!--<a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>-->
+    <a href="#/tab/user/userRegister" class="button button-clear ion ion-chevron-left">返回</a>
+    <h1 class="title">相关附件</h1>
+</ion-header-bar>
+
+<ion-content class="padding">
+
+    <a class="button button-large button-icon icon ion-images" type='button'
+       href="http://www.yushansoft.com/dingdong/sys/wxpay/upload-File.html"> 上传病情照片（最多5张）</a>
+    <div width="100%" height="40%" border="0" style="margin:15% 0 0 0;text-align:center;margin:0 auto;"
+         ng-hide="showsHide">
+
+        <ion-item ng-repeat="yusFile in yusFiles">
+            <img style="max-width:250px;max-height:250px" ng-src="{{yusFile}}">
+        </ion-item>
+
+
+    </div>
+
+    <div ng-show="showOrNot" class="center">
+        <div class="title">
+            您未上传任何相关附件!
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title">选择就诊医院</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" overflow-scroll="false">
+
+        <ion-item class="item-thumbnail-left" href="#/doctors/{{doctor.id}}/doctorInforShow">
+            <img ng-src="{{doctor.headImgUrl}}"
+                 err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+            <h2>
+                {{doctor.name}}
+            </h2>
+            <p>{{doctor.hospitalName}}</p>
+            <p>{{doctor.level}}</p>
+
+        </ion-item>
+        <div>
+            <div class="item item-divider">&nbsp;<i class="ion-location"></i>&nbsp;执业地点：</div>
+            <ion-item ng-repeat="hospital in hospitals"
+                      class="item-remove-animate item-avatar item-icon-right item-button-right"
+                      type="item-text-wrap">
+                <img ng-src="http://www.yushansoft.com/dingdong/images/hospital/hospital_0.png">
+                <h2> {{hospital.hospitalName}}</h2>
+                <p> 科室：{{hospital.deptName}}</p>
+ <!--               <p> 挂号费：{{hospital.registerFee}}&nbsp;&nbsp;元</p> --> 
+                <a id='HosStyle'
+                   ng-class="{0:'button button-balanced',1:'button button-positive',2:'button button-calm',3:'button'}[hospital.registerStatus]"
+                   ng-click="selectHospital(hospital)"
+                   ng-disabled="hospital.registerStatus==1 || hospital.registerStatus==3">{{hospital.registerStatus
+                    | doctorHospitalsStatus}}</a>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

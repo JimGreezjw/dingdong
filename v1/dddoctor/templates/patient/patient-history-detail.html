@@ -1,0 +1,68 @@
+<ion-view view-title="叮咚医邦">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#" ng-click="goBack();" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title"> {{patient.name}}</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+
+
+        <div class="">
+
+            <div class="item item-avatar">
+				<img ng-src="{{patient.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/sys/patient.png">
+
+                <h2>{{patient.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{patient.phone}}</h2>
+                <p>{{patient.gender | gender}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{patient.certificateId | dateFormatAge1}}岁</p>
+				<!--<p>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：{{patient.phone}}</p>-->
+            </div>
+        </div>
+
+        <div class="item item-divider">
+            病情简介
+        </div>
+        <div class="item item-text-wrap">
+            {{register.phenomenon}}
+            <br>
+            <div class="row">
+                <div class="col col-25" ng-repeat="yusFile in yusFiles"   style="width: 100%;height: 100%;padding:0px;box-shadow:0 0 1px rgb(153,134,117);">
+                    <img class="full-image" style="border:1px solid #ffffff;" ng-src="{{yusFile}}" ng-click="shouBigImage('{{yusFile}}')">
+                </div>
+            </div>
+        </div>
+
+        <div class="item item-divider" align="left">
+            患者评价
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="doctorEval in doctorEvals" class="item-remove-animate item-icon-right"
+                      type="item-text-wrap">
+                <p style="font-size: 1.1em;padding-top: 0.5em;padding-left: 0.5em;">{{doctorEval.evalDesc}}</p>
+                <div class="row" style="padding: 0px">
+                    <div class="col col-33 " style="padding: 0px">
+
+                        <div star startext="疗效:" rating-value="doctorEval.treatmentEffect" readonly="true"
+                             starstyle="ratingsmall"></div>
+                    </div>
+                    <div class="col col-offset-33" style="padding: 0px">
+                        <div star startext="态度:" rating-value="doctorEval.serviceAttitude" readonly="true"
+                             starstyle="ratingsmall"></div>
+                    </div>
+                </div>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div id="rightDisplay" ng-if="bigImage" class="popover-backdrop"
+         style="position: fixed;top: 0;left: 0;z-index: 10; width: 100%;height: 100%;"
+         ng-click="hideBigImage()">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true" >
+            <ion-slide ng-repeat="yusFile in yusFiles">
+                <div class="box" >
+                    <p style="margin:0 auto;text-align:center;">
+                        <img ng-src="{{yusFile}}"  style="max-width:100%;"/>
+                    </p>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </div>
+</ion-view>

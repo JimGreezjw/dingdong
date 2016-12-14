@@ -1,0 +1,25 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar  align-title="center" class="bar-calm"> 
+        <h1 class="title">我的医生</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding" style="background-color: #F0F0F0" overflow-scroll="false">
+        <ion-list>
+            <div ng-repeat="doctor in doctors">
+                <ion-item class="item-remove-animate item-thumbnail-left item-icon-right"
+                          type="item-text-wrap" href="#/doctors/{{doctor.id}}/doctorInforShow">
+                    <img ng-src="{{doctor.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/doctors/doctor_0.png">
+                    <p style="padding-bottom: 0.2em"><a class="fontNum1"> {{doctor.name}}&nbsp;</a><a
+                            class="fontNum2">{{doctor.level}},{{doctor.teacherLevel}}</a></p>
+                    <p style="padding-bottom: 0.2em">{{doctor.hospitalName}}&nbsp;&nbsp;{{doctor.deptName}}</p>
+                    <p style="padding-bottom: 0.2em"><a
+                            class="fontNum3">擅长：</a>{{doctor.specialty}}</p>
+
+                    <ion-option-button class="button-assertive" ng-click="remove(doctor)">
+                        取消
+                    </ion-option-button>
+
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

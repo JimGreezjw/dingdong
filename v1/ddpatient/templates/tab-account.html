@@ -1,0 +1,62 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar align-title="center" class="bar-calm">
+        <h1 class="title">个人中心</h1>
+        <a href="#/user/setting" class="button button-large button-clear ion ion-ios-gear">&nbsp;设置</a>
+    </ion-header-bar>
+    <ion-content style="background-color: #F0F0F0" overflow-scroll="false">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div>
+            <a href="#/user/userInformation" class="item item-avatar item-icon-right">
+                <img ng-src="{{user.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/ddmzQr.png">
+                <h2>{{user.name}}</h2>
+                <p >{{user.phone}}</p>
+                <i class="icon  icon-accessory">{{user.phone?'变更&nbsp;&nbsp;>':'手机核验'}}</i>
+            </a>
+        </div>
+        <div class="row" style="padding: 0px">
+            <div class="col col-50" style="padding: 0px" >
+                <a href="#/user/wxpay" class="item item-avatar ">
+                    <img ng-src="http://www.yushansoft.com/dingdong/images/sys/accountBalance.png">
+                    <p>余额（元）</p>
+                    <h2>{{ctrlScope.balance}}</h2>
+                </a>
+            </div>
+
+            <div class="col col-50" style="padding: 0px">
+                <a href="#/userTransfer/1" class="item item-avatar ">
+                    <img ng-src="http://www.yushansoft.com/dingdong/images/sys/score.png">
+                    <p>积分（咚）</p>
+                    <h2>{{ctrlScope.score}}</h2>
+                </a>
+            </div>
+        </div>
+        <a class="item item-icon-left" href="#/tab/user/userQueue">
+            <i class="icon ion-ios-people" style="color: #0a9dc7;"></i>
+            名医排队
+            <span class="badge badge-balanced" ng-if="queuesCount>0">{{queuesCount}}</span>
+        </a>
+        <a class="item item-icon-left" href="#/tab/user/userRegister">
+            <i class="icon ion-fork-repo" style="color: #0a9dc7;"></i>
+            预约挂号
+            <span class="badge badge-balanced" ng-if="registerCount>0">{{registerCount}}</span>
+        </a>
+        <a class="item item-icon-left" href="#/tab/user/needEvaluationList">
+            <i class="icon ion-chatbox-working" style="color: #0a9dc7;"></i>
+            待评价就诊
+            <span class="badge badge-assertive" ng-if="needEvaluationCount>0">{{needEvaluationCount}}</span>
+        </a>
+        <a class="item item-icon-left" href="#/tab/user/userRegisterHistory">
+            <i class="icon ion-ios-book" style="color: #0a9dc7;"></i>
+            就诊记录
+        </a>
+        <br/>
+        <a class="item item-icon-left" href="#/userPatientAccount/account">
+            <i class="icon ion-person-stalker" style="color: #0a9dc7;"></i>
+            就诊人管理
+        </a>
+        <a class="item item-icon-left" href="#/user/terms">
+            <i class="icon ion-ios-paper" style="color: #886aea;"></i>
+            服务协议
+        </a>
+    </ion-content>
+</ion-view>

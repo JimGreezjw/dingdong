@@ -1,0 +1,45 @@
+<ion-view view-title="叮咚门诊">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title"> {{patientEditTitle}}</h1>
+        <h2 class="button button-clear ion ion-checkmark-round" ng-click="showConfirmeAdd('添加')">保存</h2>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                <input type="text" ng-model="ctrlScope.patientName" placeholder="请输入姓名" required>
+            </label>
+
+            <label class="item item-input item-select">
+            <span class="input-label">
+                患&nbsp;者&nbsp;性&nbsp;别
+            </span>
+                <select class="item-input-inset" ng-model="ctrlScope.gender"
+                        ng-options="gender.value as gender.name for gender in genderList">
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">身&nbsp;份&nbsp;证&nbsp;号</span>
+                <input type="text" ng-model="ctrlScope.certificateId" placeholder="请输入身份证号" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">手&nbsp;&nbsp;&nbsp;机&nbsp;&nbsp;&nbsp;号</span>
+                <input type="tel" ng-model="ctrlScope.phone" placeholder="请输入手机号" required>
+            </label>
+            <label class="item item-input item-select">
+            <span class="input-label">
+                与患者关系
+            </span>
+                <select class="item-input-inset" ng-model="ctrlScope.userRelation"
+                        ng-options="userRelation.value as userRelation.name for userRelation in userRelationList">
+                </select>
+            </label>
+        </div>
+        <br/>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,56 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        </ion-nav-bar>
+        <h1 class="title">{{title}}信息</h1>
+        <h2 class="button button-clear ion ion-checkmark-round" ng-click="showConfirm(title)"
+            ng-disabled="myForm.ctrlScope.name.$dirty && myForm.ctrlScope.name.$invalid">{{title}}</h2>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <label class="item item-input">
+            <button ng-model="ctrlScope.getUserPatient" ng-click="(pageStatus=='registerNew' || pageStatus=='queueNew')?getUserPatient():null"
+                    class="button button-clear ion ion-person-add">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <input type="text" name="name" ng-model="ctrlScope.name" placeholder="请选择就诊人" required readonly
+                   ng-disabled="pageStatus=='registerUpdate' || pageStatus=='queueUpdate'">
+        </label>
+
+        <label class="item item-input item-select">
+            <span class="input-label">
+               是否得到过本医生的诊疗
+            </span>
+            <select class="item-input-inset" ng-model="ctrlScope.revisit"
+                    ng-disabled="pageStatus=='registerUpdate' || pageStatus=='queueUpdate'"
+                    ng-options="revisit.value as revisit.name for revisit in revisitList">
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">病&nbsp;情&nbsp;描&nbsp;述</span>
+            <textarea rows="6" ng-model="ctrlScope.phenomenon" placeholder="请输入病情描述"></textarea>
+        </label>
+
+        <div class="item item-text-wrap">
+            病情图片(最多4张)
+        </div>
+        <div class="row">
+            <div class="col col-25" ng-repeat="yusFile in yusFiles">
+                <img data-tap-disabled="false" class="full-image" ng-src="{{yusFile}}" ng-click="previewImage(yusFile)" on-hold="delImage(yusFile)">
+            </div>
+            <div class="col" ng-show="yusFiles.length<4 || (!yusFiles)">
+                <a class="button button-large button-icon icon ion-plus" ng-click="wxUpload()"></a>
+            </div>
+        </div>
+
+        <table style="margin:5% 0 0 0">
+            <tr>
+                <td align="center">
+                    <input style="width:20px;height:20px;" type="checkbox" ng-checked="true" name="同意"
+                           ng-model="ctrlScope.agree">
+                </td>
+                <td align="center">
+                    <a href="#/user/terms"> 同意《叮咚门诊预约挂号服务协议》</a>
+                </td>
+            </tr>
+        </table>
+    </ion-content>
+</ion-view>

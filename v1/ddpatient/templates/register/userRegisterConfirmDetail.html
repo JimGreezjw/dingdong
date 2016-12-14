@@ -1,0 +1,56 @@
+<ion-header-bar class="bar bar-calm" align-title="center">
+    <a href="#/tab/user/register/userRegisterConfirm" class="button button-clear ion ion-chevron-left">返回</a>
+    <h1 class="title">填写信息</h1>
+</ion-header-bar>
+<ion-content class="padding">
+
+    <div class="list">
+        <label class="item item-input">
+            <button ng-model="ctrlScope.getUserPatient" ng-click="getUserPatient()"
+                    class="button button-clear ion ion-person-add">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <input type="text" name="name" ng-model="ctrlScope.name" placeholder="请选择就诊人" required readonly>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">身份证号</span>
+            <input type="text" ng-model="ctrlScope.certiNo" placeholder="请输入身份证号" required>
+        </label>
+
+        <label class="item item-input item-select">
+            <span class="input-label">
+                与患者关系
+            </span>
+            <select class="item-input-inset" ng-model="ctrlScope.userRelation"
+                    ng-options="userRelation.value as userRelation.name for userRelation in userRelationList">
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label">
+               是否得到过该医生的诊治
+            </span>
+            <select class="item-input-inset" ng-model="ctrlScope.revisit"
+                    ng-options="revisit.value as revisit.name for revisit in revisitList">
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">病情描述</span>
+            <textarea rows="6" ng-model="ctrlScope.phenomenon" placeholder="请输入病情描述"></textarea>
+        </label>
+    </div>
+    <h2 class="button button-large button-icon icon ion-upload" ng-click="wxUpload('添加')">{{filesUplod}}</h2>
+    <h2 class="button button-large button-icon icon ion-images" ng-click="previewImage('附件')">查看附件</h2>
+    <table style="margin:5% 0 0 0">
+        <tr>
+            <td align="center">
+                <input style="width:20px;height:20px;" type="checkbox" ng-checked="true" name="同意"
+                       ng-model="ctrlScope.agree">
+            </td>
+            <td align="center">
+                <a href="#/tab/user/terms"> 同意《叮咚门诊预约挂号服务协议》</a>
+            </td>
+        </tr>
+    </table>
+</ion-content>
+
+<div class="bar bar-subfooter bar-balanced">
+    <h2 class="title" ng-click="showConfirmeRegister('预约确认')">预约确认</h2>
+</div>

@@ -1,0 +1,23 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar align-title="center" class="bar-calm">
+        <h1 class="title">医生列表</h1>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="vm.doRefresh()"></ion-refresher>
+        <ion-list>
+            <div ng-repeat="doctor in vm.doctors">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" href="#/tab/doctors/{{doctor.id}}">
+                    <img ng-src="{{doctor.headImgUrl}}" err-src="img/doctors/doctor_0.png">
+
+                    <h2>{{doctor.name}}</h2>
+                    <p>{{doctor.hospitalName}}</p>
+                    <p>{{doctor.level}}</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+            </div>
+
+        </ion-list>
+        <ion-infinite-scroll ng-if="vm.moredata" on-infinite="vm.loadMore()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

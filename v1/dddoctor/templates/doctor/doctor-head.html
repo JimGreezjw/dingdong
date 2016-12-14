@@ -1,0 +1,17 @@
+<ion-view view-title="叮咚门诊">
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/personalInformation"  class="button button-clear ion ion-chevron-left">返回</a>
+        </ion-nav-bar>
+        <h1 class="title">个人头像</h1>
+        <h2 class="button button-clear ion ion-more" ng-click="wxUpload('更换头像')" ></h2>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col" >
+                <img data-tap-disabled="false" class="full-image" ng-src="{{doctor.headImgUrl}}" >
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

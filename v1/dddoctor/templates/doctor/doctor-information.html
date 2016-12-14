@@ -1,0 +1,41 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a href="#/tab/personalInformation" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">我的信息</h1>
+        <h2 class="button button-clear ion ion-checkmark-round" ng-click="showConfirmeSave('保存更改')" >保存</h2>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+     <!--<div class="list card">-->
+
+          <!--<div class="item item-avatar">-->
+                <!--<img ng-src="{{doctor.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/ddmzQr.png">-->
+                <!--<h2>{{doctor.name}}</h2>-->
+                <!--<p>性别：{{doctor.gender| gender}}</p>-->
+          <!--</div>-->
+     <!--</div>-->
+     <div class="list">
+        <label class="item item-input">
+            <span class="input-label">医院：</span>
+            <input type="text" ng-model="ctrlScope.hospitalName"  placeholder="请输入医院" required >
+        </label>
+         <label class="item item-input">
+             <span class="input-label">职称：</span>
+             <input type="text" ng-model="ctrlScope.level"  placeholder="请输入职称描述" required >
+         </label>
+         <label class="item item-input">
+             <span class="input-label">特长（100字）：</span>
+         </label>
+         <label class="item item-input item-stacked-label">
+                 <textarea rows="6" ng-model="ctrlScope.specialty"  placeholder="请输入特长描述"></textarea>
+         </label>
+         <label class="item item-input">
+             <span class="input-label">简介（250字）：</span>
+         </label>
+         <label class="item item-input item-stacked-label">
+             <textarea rows="8" ng-model="ctrlScope.introduction"  placeholder="请输入简介描述"></textarea>
+         </label>
+    </div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+<ion-view view-title="叮咚医邦">
+
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack();" class="button button-clear ion ion-chevron-left">返回</a>
+        <h1 class="title"> 我的银行卡</h1>
+        <h2 class="button button-clear ion " ng-click="showConfirmeAdd('添加')">添加</h2>
+    </ion-header-bar>
+    <ion-content class="row-no-padding">
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新...."
+                       refreshing-text="正在刷新!"
+                       refreshing-icon="ion-loading-b">
+
+        </ion-refresher>
+        <ion-list>
+            <div ng-repeat="account in accounts">
+                <ion-item class="item-remove-animate item-avatar item-icon-right"
+                          type="item-text-wrap" ng-click="getAccount(account)">
+                    <img ng-src="{{account.logo}}" err-src="http://www.yushansoft.com/dingdong/images/sys/bank_Credit_Card.png">
+                    <h2  ><span style="float:left;" >{{account.bankName}}</span><span style="  float:right; ">{{account.cardName}}</span></h2>
+                    <p>{{account.cardNumber}}</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(account)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+            </div>
+
+
+        </ion-list>
+
+        <div  ng-show="showOrNot" class="center" >
+            <div class="title">
+                还没有添加账户!
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

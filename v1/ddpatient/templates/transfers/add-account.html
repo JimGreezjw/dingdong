@@ -1,0 +1,45 @@
+<ion-view view-title="叮咚医邦" >
+    <ion-header-bar class="bar bar-calm" align-title="center">
+        <a ng-click="goBack()" class="button button-clear ion ion-chevron-left" >返回</a>
+        <h1 class="title">添加银行卡</h1>
+    </ion-header-bar>
+
+    <ion-content class="row-no-padding" style="background-color: #F0F0F0">
+
+        <div class="list">
+
+            <label class="item item-input">
+                <span class="input-label">银行</span>
+                <input type="text" style=" text-align:right" ng-model="ctrlScope.bankName"  placeholder="请输入银行" required >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">开户支行</span>
+                <input type="text" style=" text-align:right" ng-model="ctrlScope.bankBranchName"  placeholder="请输入开户支行" required >
+            </label>
+            <br/>
+            <label class="item item-input">
+                <span class="input-label">开户行所在地</span>
+                <input type="text" style=" text-align:right" ng-model="ctrlScope.bankAddress"  placeholder="请输入开户行所在地" required >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">储蓄卡号</span>
+                <input type="tel" style=" text-align:right" style=" text-align:right"  ng-model="ctrlScope.cardNumber"  placeholder="请输入储蓄卡号" required >
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">开户人姓名</span>
+                <input type="text" style=" text-align:right" ng-model="ctrlScope.cardName"  placeholder="请输入开户人姓名" required >
+            </label>
+            <br/>
+        </div>
+        <div>
+            <p class="ex1">
+                &nbsp;&nbsp;为了保证您能及时完成提现/转账，请准确填写您的银行卡信息。
+            </p>
+        </div>
+        <div>
+            <h2 id='navigation' class="button button-positive" ng-click="showConfirmeAdd('提交申请')" >添加</h2>
+        </div>
+
+    </ion-content>
+</ion-view>

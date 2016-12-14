@@ -1,0 +1,48 @@
+<ion-view>
+    <ion-header-bar class="bar-calm"  align-title="center">
+        <h1 class="title">叮咚医邦</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list card">
+       <div class="item item-avatar">
+           <img ng-src="{{doctor.headImgUrl}}" err-src="http://www.yushansoft.com/dingdong/images/ddmzQr.png">
+           <h2>{{doctor.name}}</h2>
+           <p>性别：{{doctor.gender| gender}}</p>
+           <p>职称：{{doctor.level}}</p>
+       </div>
+      </div>
+       <table width="100%" height="40%" class="tableStyle" >
+           <tr class="tableTrStyle" height="100%">
+               <td  align="center"  width="33%" class="tableTdStyle">
+                   <a href="#/tab/smsValid" > <img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/mobileVerification.png"/></a><br><p class="ex1">手机验证</p>
+               </td>
+               <td  align="center" width="33%" class="tableTdStyle">
+                   <a href="#/tab/doctorInformation"><img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/personalInformation.png"/></a><br><p class="ex1">我的信息</p>
+               </td>
+               <td  align="center" width="33%" class="tableTdStyle">
+                   <a href="#/tab/wxpay" ><img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/wallet.png"/></a><br><p class="ex1">我的余额</p>
+               </td>
+           </tr>
+           <tr class="tableTrStyle" height="100%">
+               <td  align="center"  width="33%"  class="tableTdStyle">
+                   <a href="#/tab/score" > <img height="42" width="42" src="http://www.yushansoft.com/dingdong/images/sys/score.png"/></a><br><p class="ex1">我的积分</p>
+               </td>
+               <td  align="center" width="33%" class="tableTdStyle">
+                   <a > </a><br><p class="ex1">待开放</p>
+               </td>
+               <td  align="center" width="33%"  class="tableTdStyle">
+                   <a  > </a><br><p class="ex1">待开放</p>
+               </td>
+           </tr>
+       </table>
+
+        <ion-list>
+            <a class="item item-icon-left" href="#/user/userQueue">
+                <i class="icon ion-help"></i>
+                帮助
+                <span class="badge badge-assertive">{{queuesCount}}</span>
+            </a>
+          
+        </ion-list>
+   </ion-content>
+</ion-view>

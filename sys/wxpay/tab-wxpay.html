@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+
+    <link href="//cdn.bootcss.com/ionic/1.2.1/css/ionic.min.css" rel="stylesheet">
+    <link href="http://www.yushansoft.com/dingdong/common/lib/ionic/css/calendar.css" rel="stylesheet">
+    <title></title>
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://www.yushansoft.com/dingdong/sys/wxpay/common.js"></script>
+    <script>
+
+    </script>
+    <style type="text/css">
+
+
+        .btn {
+            font-size: 20px;
+            padding: 0.5em 1.5em;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -o-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -khtml-border-radius: 10px;
+            border-radius: 10px;
+            background-color: #ffd71a;
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffed9a), color-stop(50%, #ffd71a), color-stop(100%, #ffaa1a));
+            background: -webkit-linear-gradient(#ffed9a, #ffd71a 50%, #ffaa1a);
+            background: -moz-linear-gradient(#ffed9a, #ffd71a 50%, #ffaa1a);
+            background: -o-linear-gradient(#ffed9a, #ffd71a 50%, #ffaa1a);
+            background: -ms-linear-gradient(#ffed9a, #ffd71a 50%, #ffaa1a);
+            background: linear-gradient(#ffed9a, #ffd71a 50%, #ffaa1a);
+            -moz-box-shadow: #fffbe6 0 1px 0 inset;
+            -webkit-box-shadow: #fffbe6 0 1px 0 inset;
+            -o-box-shadow: #fffbe6 0 1px 0 inset;
+            box-shadow: #fffbe6 0 1px 0 inset;
+            border: 1px solid #ffa100;
+            color: black;
+            text-shadow: #f3c800 0 -1px 0;
+        }
+    </style>
+
+</head>
+<body bgcolor="#FCFCFC" ng-app="ddpatientApp">
+<ion-nav-view>
+    <ion-view view-title="叮咚门诊">
+
+        <ion-header-bar class="bar bar-calm" align-title="center">
+            <a href="javascript:history.back(-1)" target="_self" class="button button-clear ion ion-chevron-left">返回</a>
+            <h1 class="title">账户充值</h1>
+        </ion-header-bar>
+
+        <div width="100%" height="40%" border="0" style="margin:15% 0 0 0">
+
+            <img style="max-height:140px;width:100%" src="http://www.yushansoft.com/dingdong/images/guanggao/go5.jpg"/>
+        </div>
+
+            <div style="text-align:center;font: normal bold 2em 华文楷体;line-height: 1.5;color: black;padding: 1em">叮咚门诊账户充值</div>
+            <label class="item item-input" >
+                <span class="input-label" style="font: normal bold 1.3em 黑体;line-height: 1.5;color: black;">金额（元）：</span>
+                <input  style="font: normal bold 1.3em 黑体;line-height: 1.5;color: gold;" type="tel" value="100" id='totalFee'
+                       placeholder="请输入充值金额" required>
+            </label>
+
+            <div width="100%" height="40%" border="0" style="margin:10% 0 0 0;text-align:center">
+                <input style="" class='btn' type='button' id='pay' value='立即充值' onclick="window.ys.wechat.wxPay()">
+            </div>
+
+    </ion-view>
+</ion-nav-view>
+</body>
+</html>
+
+
+

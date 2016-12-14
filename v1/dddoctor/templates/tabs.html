@@ -1,0 +1,19 @@
+<ion-tabs class="tabs-icon-top tabs-icon-only tabs-color-active-balanced">
+
+    <ion-tab title="门诊" class="{{haveNews}}"  icon-off="ion-person-stalker" icon-on="ion-person-stalker" ui-sref="tab.patientsAll">
+        <ion-nav-view name="tab-patientsAll"></ion-nav-view>
+    </ion-tab>
+
+   <ion-tab title="行程" icon-off="ion-android-calendar" icon-on="ion-android-calendar" ui-sref="tab.schedules">
+    <ion-nav-view name="tab-schedules"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="医院" icon-off="ion-ios-medkit" icon-on="ion-ios-medkit" ui-sref="tab.hospitals">
+    <ion-nav-view name="tab-hospitals"></ion-nav-view>
+  </ion-tab>
+ 
+   <ion-tab title="我" icon-off="ion-android-person" icon-on="ion-android-person" ui-sref="tab.accountAll">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>
